@@ -36,14 +36,14 @@ const CallToAction = lazy(() =>
 )
 
 const navItems = [
-  { id: 'content-warning', label: '內容警告' },
-  { id: 'prologue', label: '序章' },
-  { id: 'historical-context', label: '時代背景' },
-  { id: 'the-massacre', label: '案發經過' },
-  { id: 'investigation-history', label: '調查歷程' },
-  { id: 'surveillance-truth', label: '監控真相' },
-  { id: 'unsolved-mysteries', label: '未解之謎' },
-  { id: 'call-to-action', label: '行動呼籲' },
+  { id: 'content-warning', label: '內容警告', labelEn: 'Content Warning', num: '—' },
+  { id: 'prologue', label: '序章', labelEn: 'Prologue', num: '01' },
+  { id: 'historical-context', label: '時代背景', labelEn: 'Historical Context', num: '02' },
+  { id: 'the-massacre', label: '案發經過', labelEn: 'The Massacre', num: '03' },
+  { id: 'investigation-history', label: '調查歷程', labelEn: 'Investigation History', num: '04' },
+  { id: 'surveillance-truth', label: '監控真相', labelEn: 'Surveillance Truth', num: '05' },
+  { id: 'unsolved-mysteries', label: '未解之謎', labelEn: 'Unsolved Mysteries', num: '06' },
+  { id: 'call-to-action', label: '行動呼籲', labelEn: 'Call to Action', num: '07' },
 ]
 
 /** Minimal loading fallback — dark bg with subtle pulse */

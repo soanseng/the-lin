@@ -48,7 +48,7 @@ body {
   background-color: var(--color-void);
   color: var(--color-paper-aged);
   font-family: var(--font-narrative);
-  font-size: clamp(16px, 1vw + 14px, 18px);
+  font-size: clamp(16px, 0.5vw + 15px, 20px);
   line-height: 1.9;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

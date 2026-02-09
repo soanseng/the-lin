@@ -237,7 +237,7 @@ export function CallToAction() {
 
           <ScrollReveal delay={200}>
             <p className="mb-6 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
-              二〇二四年，一部未經家屬授權的電影聲稱改編自林宅血案。
+              二〇二六年，一部未經家屬授權的電影聲稱改編自林宅血案。
               影片扭曲歷史，以聳動手法消費受害者家屬的傷痛，引發社會爭議。
             </p>
           </ScrollReveal>
