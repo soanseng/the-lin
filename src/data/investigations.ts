@@ -176,10 +176,10 @@ export const investigationPhases: InvestigationPhase[] = [
     id: 'tjc-investigation',
     name: '促轉會重啟調查',
     nameEn: 'Transitional Justice Commission Investigation',
-    agency: '促進轉型正義委員會',
+    agency: '促進轉型正義委員會（已於111年5月30日解散，業務移交行政院人權及轉型正義處）',
     startDate: '2018-05-31',
     startDateROC: '107年5月31日',
-    description: '促轉會成立後正式重啟林宅血案調查。距案發近四十年。108年7月24日《政治檔案條例》施行後，方得以完整調用林宅血案相關檔案。首次揭露大量情治機關監控證據。',
+    description: '促轉會成立後正式重啟林宅血案調查。距案發近四十年。108年7月24日《政治檔案條例》施行後，方得以完整調用林宅血案相關檔案。首次揭露大量情治機關監控證據。促轉會於111年5月30日依法解散，轉型正義業務移交行政院人權及轉型正義處接續推動。',
     findings: [
       '首次揭露情治機關對林宅及林義雄家屬進行系統性監控之事實',
       '確認國安局、警總、調查局、憲兵司令部等均參與監控',

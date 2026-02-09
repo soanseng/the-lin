@@ -84,22 +84,22 @@ function RedactedBlock({
         role="button"
         tabIndex={0}
         aria-label={isRevealed ? item.secret : '點擊解密此段機密文字'}
-        className={`relative min-h-[44px] cursor-pointer select-none rounded-sm px-4 py-3 transition-all duration-700 ${
+        className={`relative min-h-[44px] select-none rounded-sm px-4 py-3 ${
           isRevealed
-            ? 'bg-blood-dark/10 text-paper-aged'
-            : 'bg-ink hover:bg-ink/80'
+            ? 'bg-void/90'
+            : 'cursor-pointer bg-ink hover:bg-ink/80'
         }`}
         style={{ touchAction: 'manipulation' }}
-        onClick={onReveal}
+        onClick={isRevealed ? undefined : onReveal}
         onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
+          if (!isRevealed && (e.key === 'Enter' || e.key === ' ')) {
             e.preventDefault()
             onReveal()
           }
         }}
       >
         {isRevealed ? (
-          <p className="font-literary text-[0.85rem] leading-8 text-paper-aged/90">
+          <p className="font-literary text-[0.85rem] leading-8 text-paper-burnt">
             {item.secret}
           </p>
         ) : (

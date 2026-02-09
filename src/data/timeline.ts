@@ -645,6 +645,14 @@ export const investigationTimeline: TimelineEvent[] = [
     category: 'investigation',
     source: '促轉會報告 第三章 p.89',
   },
+  {
+    date: '2022-05-30',
+    dateROC: '111年5月30日',
+    description: '促進轉型正義委員會完成階段性任務依法解散。轉型正義業務移交行政院人權及轉型正義處（行政院推動轉型正義會報）接續推動。',
+    category: 'investigation',
+    source: '行政院公報',
+    isKey: true,
+  },
 ]
 
 /** All timeline events combined and sorted chronologically */

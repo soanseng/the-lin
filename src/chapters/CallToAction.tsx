@@ -10,7 +10,7 @@ const sourceDocuments = [
     titleEn: 'Transitional Justice Commission Report',
     description:
       '促進轉型正義委員會針對林宅血案之完整調查報告，首度揭露情治機關監控與系統性滅證。',
-    filename: '促-林-short-version.pdf',
+    filename: 'https://drive.google.com/file/d/1AE66o-yHOZOlPEMxf1EHuVTtZcCC4JYK/view?usp=sharing',
     icon: '\u{1F4DC}', // used as alt-text only, not rendered
   },
   {
@@ -31,9 +31,9 @@ const sourceDocuments = [
 
 const transitionalJusticeLinks = [
   {
-    title: '促進轉型正義委員會',
-    url: 'https://www.tjc.gov.tw/',
-    description: '了解台灣轉型正義推動現況與完整調查報告',
+    title: '行政院人權及轉型正義處',
+    url: 'https://www.ey.gov.tw/tjb/A699EA3CE66CF4CF',
+    description: '促轉會於2022年解散後，轉型正義業務由行政院人權及轉型正義處接續推動',
   },
   {
     title: '國家人權博物館',
@@ -425,6 +425,7 @@ export function CallToAction() {
                 <ul className="space-y-3">
                   <li className="font-narrative text-[0.82rem] leading-7 text-dust">
                     <span className="text-paper-aged">促進轉型正義委員會</span>
+                    <span className="text-stone">（已於2022年解散）</span>
                     ——〈林義雄宅血案調查報告〉
                   </li>
                   <li className="font-narrative text-[0.82rem] leading-7 text-dust">
