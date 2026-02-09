@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+/*
+ * Design System: 檔案恐怖 (Bureaucratic Horror)
+ * See design-prototype.html for visual reference
+ */
+
+@theme {
+  /* === Core Palette === */
+  --color-void:          #080808;
+  --color-ink:           #0D0A0A;
+  --color-ash:           #1C1917;
+  --color-smoke:         #292524;
+  --color-stone:         #44403C;
+  --color-dust:          #78716C;
+
+  /* === Paper & Document === */
+  --color-paper-aged:    #E8DCC4;
+  --color-paper-burnt:   #D4C4A0;
+  --color-paper-fresh:   #F4F1E8;
+
+  /* === Blood & Danger === */
+  --color-blood-dark:    #7F1D1D;
+  --color-blood:         #991B1B;
+  --color-seal-red:      #DC2626;
+
+  /* === Incense & Warmth === */
+  --color-incense:       #D4834F;
+  --color-amber:         #B45309;
+  --color-candle:        #FDE68A;
+
+  /* === Typography === */
+  --font-narrative:      "Noto Serif TC", "Source Han Serif TC", Georgia, serif;
+  --font-heading:        "Noto Sans TC", "Source Han Sans TW", sans-serif;
+  --font-literary:       "LXGW WenKai TC", "Noto Serif TC", serif;
+  --font-document:       "Courier New", "Noto Sans Mono CJK TC", monospace;
+}
+
+/* === Base Styles === */
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-void);
+  color: var(--color-paper-aged);
+  font-family: var(--font-narrative);
+  font-size: 18px;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+    line-height: 1.85;
+  }
+}
+
+/* === Film Grain Overlay === */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px;
+  mix-blend-mode: overlay;
+  animation: grain 0.5s steps(1) infinite;
+}
+
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 3px); }
+  50% { transform: translate(3px, -1px); }
+  75% { transform: translate(-1px, -3px); }
+  100% { transform: translate(2px, 1px); }
+}
+
+/* === Scroll Reveal Base === */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Keyframes === */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Reduced Motion === */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  body::after { display: none; }
+}
