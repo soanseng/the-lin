@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>林宅血案 — 設計原型</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;700;900&family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ═══════════════════════════════════════
+     DESIGN SYSTEM: 檔案恐怖 (Bureaucratic Horror)
+     ═══════════════════════════════════════ */
+
+  :root {
+    /* === Core Palette === */
+    --void:            #080808;
+    --ink:             #0D0A0A;
+    --ash:             #1C1917;
+    --smoke:           #292524;
+    --stone:           #44403C;
+    --dust:            #78716C;
+
+    /* === Paper & Document === */
+    --paper-aged:      #E8DCC4;
+    --paper-burnt:     #D4C4A0;
+    --paper-fresh:     #F4F1E8;
+
+    /* === Blood & Danger === */
+    --blood-dark:      #7F1D1D;
+    --blood:           #991B1B;
+    --seal-red:        #DC2626;
+    --blood-faded:     rgba(153, 27, 27, 0.4);
+
+    /* === Incense & Warmth === */
+    --incense:         #D4834F;
+    --amber:           #B45309;
+    --candle:          #FDE68A;
+
+    /* === Institutional === */
+    --fluorescent:     #F5F5F0;
+    --concrete:        #A8A8A8;
+    --cyan-door:       #5F9EA0;
+
+    /* === Typography === */
+    --font-narrative:  "Noto Serif TC", "Source Han Serif TC", Georgia, serif;
+    --font-heading:    "Noto Sans TC", "Source Han Sans TW", sans-serif;
+    --font-literary:   "LXGW WenKai TC", "Noto Serif TC", serif;
+    --font-document:   "Courier New", "Noto Sans Mono CJK TC", monospace;
+
+    /* === Spacing === */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 8rem;
+    --space-2xl: 12rem;
+  }
+
+  /* ═══════════════════════════════════════
+     RESET & BASE
+     ═══════════════════════════════════════ */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+    overflow-x: hidden;
+  }
+
+  body {
+    background: var(--void);
+    color: var(--paper-aged);
+    font-family: var(--font-narrative);
+    font-size: 18px;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; line-height: 1.85; }
+  }
+
+  /* ═══════════════════════════════════════
+     ATMOSPHERIC OVERLAYS
+     ═══════════════════════════════════════ */
+
+  /* Film grain — always present */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px;
+    mix-blend-mode: overlay;
+    animation: grain 0.5s steps(1) infinite;
+  }
+
+  @keyframes grain {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-2px, 3px); }
+    50% { transform: translate(3px, -1px); }
+    75% { transform: translate(-1px, -3px); }
+    100% { transform: translate(2px, 1px); }
+  }
+
+  /* ═══════════════════════════════════════
+     SECTION BASE
+     ═══════════════════════════════════════ */
+  section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: var(--space-lg) var(--space-md);
+    scroll-snap-align: start;
+  }
+
+  @media (max-width: 640px) {
+    section { padding: var(--space-md) var(--space-sm); }
+  }
+
+  .vignette {
+    box-shadow: inset 0 0 250px 80px rgba(0,0,0,0.6);
+  }
+
+  /* ═══════════════════════════════════════
+     CONTENT WARNING
+     ═══════════════════════════════════════ */
+  #content-warning {
+    background: var(--void);
+    text-align: center;
+    cursor: pointer;
+  }
+
+  #content-warning .cw-border {
+    border: 1px solid var(--stone);
+    padding: var(--space-lg);
+    max-width: 540px;
+  }
+
+  .cw-label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--dust);
+    margin-bottom: var(--space-md);
+  }
+
+  .cw-title {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    color: var(--paper-aged);
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+  }
+
+  .cw-body {
+    font-family: var(--font-literary);
+    font-size: 0.95rem;
+    color: var(--dust);
+    line-height: 2;
+    margin-bottom: var(--space-lg);
+  }
+
+  .cw-enter {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--blood);
+    border: 1px solid var(--blood-dark);
+    padding: 0.8rem 2.5rem;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .cw-enter:hover {
+    background: var(--blood-dark);
+    color: var(--paper-aged);
+    border-color: var(--blood);
+  }
+
+  /* ═══════════════════════════════════════
+     CHAPTER 1: 序章 — THE DATE
+     ═══════════════════════════════════════ */
+  #prologue {
+    background: var(--void);
+    overflow: hidden;
+  }
+
+  .date-reveal {
+    text-align: center;
+  }
+
+  .date-roc {
+    font-family: var(--font-heading);
+    font-weight: 300;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    letter-spacing: 0.5em;
+    color: var(--dust);
+    opacity: 0;
+    animation: fadeUp 2s ease 0.5s forwards;
+  }
+
+  .date-main {
+    font-family: var(--font-narrative);
+    font-weight: 900;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    color: var(--paper-aged);
+    letter-spacing: 0.15em;
+    line-height: 1.3;
+    opacity: 0;
+    animation: fadeUp 2.5s ease 1.5s forwards;
+    text-shadow: 0 0 80px rgba(232, 220, 196, 0.1);
+  }
+
+  .date-sub {
+    font-family: var(--font-literary);
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    color: var(--stone);
+    margin-top: var(--space-md);
+    opacity: 0;
+    animation: fadeUp 2s ease 3s forwards;
+    letter-spacing: 0.1em;
+  }
+
+  .date-western {
+    font-family: var(--font-document);
+    font-size: 0.75rem;
+    color: var(--stone);
+    margin-top: var(--space-sm);
+    opacity: 0;
+    animation: fadeUp 2s ease 3.5s forwards;
+    letter-spacing: 0.2em;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Scroll indicator */
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: fadeUp 1s ease 5s forwards, pulse 3s ease-in-out 6s infinite;
+  }
+
+  .scroll-hint span {
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, var(--dust));
+    margin: 0 auto;
+  }
+
+  .scroll-hint small {
+    font-family: var(--font-heading);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: var(--stone);
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+  }
+
+  /* ═══════════════════════════════════════
+     CHAPTER 2: CONTEXT — TIMELINE
+     ═══════════════════════════════════════ */
+  #context {
+    background: var(--ink);
+    align-items: flex-start;
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .chapter-label {
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    color: var(--stone);
+    text-transform: uppercase;
+    margin-bottom: var(--space-xs);
+  }
+
+  .chapter-title {
+    font-family: var(--font-narrative);
+    font-weight: 900;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    color: var(--paper-aged);
+    margin-bottom: var(--space-lg);
+    line-height: 1.4;
+  }
+
+  .chapter-content {
+    max-width: 680px;
+    width: 100%;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 1px solid var(--smoke);
+  }
+
+  .timeline-event {
+    position: relative;
+    margin-bottom: var(--space-lg);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.8s ease;
+  }
+
+  .timeline-event.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .timeline-event::before {
+    content: "";
+    position: absolute;
+    left: -2rem;
+    top: 0.65rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--stone);
+    transform: translateX(-3px);
+    transition: background 0.4s ease;
+  }
+
+  .timeline-event:hover::before,
+  .timeline-event.revealed::before {
+    background: var(--blood);
+    box-shadow: 0 0 10px var(--blood-faded);
+  }
+
+  .timeline-year {
+    font-family: var(--font-document);
+    font-size: 0.75rem;
+    color: var(--blood);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--paper-aged);
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-desc {
+    font-family: var(--font-literary);
+    font-size: 0.9rem;
+    color: var(--dust);
+    line-height: 1.8;
+  }
+
+  /* ═══════════════════════════════════════
+     CHAPTER 3: 案發經過 — MASSACRE
+     ═══════════════════════════════════════ */
+  #massacre {
+    background: var(--void);
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .minute-block {
+    max-width: 680px;
+    width: 100%;
+    margin-bottom: var(--space-xl);
+    position: relative;
+  }
+
+  .minute-time {
+    font-family: var(--font-document);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    color: var(--blood-dark);
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    margin-bottom: var(--space-xs);
+    transition: color 1s ease;
+  }
+
+  .minute-block:hover .minute-time,
+  .minute-block.active .minute-time {
+    color: var(--blood);
+    opacity: 1;
+    text-shadow: 0 0 40px var(--blood-faded);
+  }
+
+  .minute-text {
+    font-family: var(--font-narrative);
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--paper-aged);
+    border-left: 2px solid var(--smoke);
+    padding-left: var(--space-md);
+    transition: border-color 0.5s ease;
+  }
+
+  .minute-block:hover .minute-text,
+  .minute-block.active .minute-text {
+    border-left-color: var(--blood-dark);
+  }
+
+  .minute-text em {
+    color: var(--incense);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  /* Horror transition — 80 minutes */
+  .horror-counter {
+    text-align: center;
+    padding: var(--space-xl) 0;
+    position: relative;
+  }
+
+  .horror-counter .big-number {
+    font-family: var(--font-document);
+    font-size: clamp(5rem, 20vw, 12rem);
+    font-weight: 900;
+    color: var(--blood-dark);
+    line-height: 1;
+    opacity: 0.6;
+    text-shadow: 0 0 100px var(--blood-faded);
+  }
+
+  .horror-counter .counter-label {
+    font-family: var(--font-literary);
+    font-size: 1rem;
+    color: var(--dust);
+    margin-top: var(--space-sm);
+    letter-spacing: 0.2em;
+  }
+
+  /* ═══════════════════════════════════════
+     CHAPTER 5: 監控 — SURVEILLANCE / DOCUMENTS
+     ═══════════════════════════════════════ */
+  #surveillance {
+    background: var(--ash);
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .document-page {
+    max-width: 640px;
+    width: 100%;
+    background: var(--paper-fresh);
+    color: var(--ink);
+    font-family: var(--font-document);
+    font-size: 0.85rem;
+    line-height: 2;
+    padding: clamp(2rem, 6vw, 4rem);
+    position: relative;
+    box-shadow:
+      0 1px 3px rgba(0,0,0,0.12),
+      0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  /* Aged paper effect */
+  .document-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(180, 160, 120, 0.08) 40%,
+      transparent 60%,
+      rgba(180, 160, 120, 0.05) 100%
+    );
+    pointer-events: none;
+  }
+
+  .doc-header {
+    text-align: center;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .doc-classification {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--blood);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .doc-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--ink);
+    letter-spacing: 0.1em;
+  }
+
+  .doc-body {
+    font-family: var(--font-narrative);
+    font-size: 0.9rem;
+    color: #292524;
+    line-height: 2.2;
+    letter-spacing: 0.03em;
+  }
+
+  /* Redacted text */
+  .redacted {
+    background: var(--ink);
+    color: transparent;
+    border-radius: 2px;
+    padding: 0 0.3em;
+    cursor: pointer;
+    transition: all 0.8s ease;
+    position: relative;
+    user-select: none;
+  }
+
+  .redacted:hover,
+  .redacted.revealed {
+    background: rgba(153, 27, 27, 0.15);
+    color: var(--blood);
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-underline-offset: 3px;
+  }
+
+  /* Classification stamp */
+  .stamp-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-18deg);
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 900;
+    color: rgba(220, 38, 38, 0.12);
+    letter-spacing: 0.3em;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Document margin notes */
+  .doc-margin-note {
+    position: absolute;
+    right: -1rem;
+    font-size: 0.6rem;
+    color: var(--blood);
+    writing-mode: vertical-rl;
+    letter-spacing: 0.15em;
+    opacity: 0.5;
+  }
+
+  /* ═══════════════════════════════════════
+     CHAPTER 6: 未解之謎 — MYSTERIES
+     ═══════════════════════════════════════ */
+  #mysteries {
+    background: var(--void);
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .mystery-card {
+    max-width: 640px;
+    width: 100%;
+    border: 1px solid var(--smoke);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-md);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+  }
+
+  .mystery-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--blood-dark);
+    transition: width 0.5s ease;
+  }
+
+  .mystery-card:hover {
+    border-color: var(--stone);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .mystery-card:hover::before {
+    width: 5px;
+    background: var(--blood);
+  }
+
+  .mystery-number {
+    font-family: var(--font-document);
+    font-size: 0.7rem;
+    color: var(--blood);
+    letter-spacing: 0.2em;
+    margin-bottom: var(--space-xs);
+  }
+
+  .mystery-question {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    color: var(--paper-aged);
+    margin-bottom: var(--space-sm);
+    line-height: 1.6;
+  }
+
+  .mystery-detail {
+    font-family: var(--font-literary);
+    font-size: 0.9rem;
+    color: var(--dust);
+    line-height: 1.9;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+  }
+
+  .mystery-card.expanded .mystery-detail {
+    max-height: 300px;
+  }
+
+  /* ═══════════════════════════════════════
+     CHAPTER 7: 行動呼籲 — CALL TO ACTION
+     ═══════════════════════════════════════ */
+  #action {
+    background: linear-gradient(to bottom, var(--ink), var(--ash));
+    text-align: center;
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .action-title {
+    font-family: var(--font-narrative);
+    font-weight: 900;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--paper-aged);
+    margin-bottom: var(--space-lg);
+    line-height: 1.5;
+  }
+
+  .action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-md);
+    max-width: 800px;
+    width: 100%;
+    margin-top: var(--space-lg);
+  }
+
+  .action-card {
+    border: 1px solid var(--smoke);
+    padding: var(--space-md);
+    text-align: left;
+    transition: all 0.4s ease;
+  }
+
+  .action-card:hover {
+    border-color: var(--stone);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+
+  .action-card h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--paper-aged);
+    margin-bottom: var(--space-xs);
+  }
+
+  .action-card p {
+    font-family: var(--font-literary);
+    font-size: 0.85rem;
+    color: var(--dust);
+    line-height: 1.8;
+  }
+
+  /* ═══════════════════════════════════════
+     NAVIGATION (minimal, hidden by default)
+     ═══════════════════════════════════════ */
+  nav {
+    position: fixed;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  nav a {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--stone);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  nav a:hover,
+  nav a.active {
+    background: var(--blood);
+    transform: scale(1.5);
+    box-shadow: 0 0 8px var(--blood-faded);
+  }
+
+  nav a:hover::after {
+    content: attr(data-label);
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    color: var(--dust);
+    white-space: nowrap;
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 640px) {
+    nav { display: none; }
+  }
+
+  /* ═══════════════════════════════════════
+     SOURCE CITATION
+     ═══════════════════════════════════════ */
+  .source-ref {
+    font-family: var(--font-document);
+    font-size: 0.65rem;
+    color: var(--stone);
+    margin-top: var(--space-sm);
+    padding-top: var(--space-xs);
+    border-top: 1px solid var(--smoke);
+    letter-spacing: 0.05em;
+  }
+
+  /* ═══════════════════════════════════════
+     UTILITY: REDUCED MOTION
+     ═══════════════════════════════════════ */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ═══ Navigation dots ═══ -->
+<nav>
+  <a href="#content-warning" data-label=""></a>
+  <a href="#prologue" data-label="序章"></a>
+  <a href="#context" data-label="時代背景"></a>
+  <a href="#massacre" data-label="案發經過"></a>
+  <a href="#surveillance" data-label="監控真相"></a>
+  <a href="#mysteries" data-label="未解之謎"></a>
+  <a href="#action" data-label="行動呼籲"></a>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     CONTENT WARNING
+     ═══════════════════════════════════════ -->
+<section id="content-warning" class="vignette">
+  <div class="cw-border">
+    <div class="cw-label">CONTENT WARNING</div>
+    <h1 class="cw-title">本網站包含政治暴力<br>及兇殺案件之相關內容</h1>
+    <p class="cw-body">
+      以下內容取材自促進轉型正義委員會、最高檢察署<br>
+      及監察院之公開調查報告，涉及1980年林宅血案<br>
+      之暴力事件描述。請斟酌自身狀況後再行閱讀。
+    </p>
+    <button class="cw-enter" onclick="document.getElementById('prologue').scrollIntoView({behavior:'smooth'})">
+      我了解，繼續閱讀
+    </button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CHAPTER 1: 序章
+     ═══════════════════════════════════════ -->
+<section id="prologue" class="vignette">
+  <div class="date-reveal">
+    <div class="date-roc">民國六十九年</div>
+    <div class="date-main">二月二十八日</div>
+    <div class="date-sub">美麗島事件軍法審判首度公開審訊之日</div>
+    <div class="date-western">FEBRUARY 28, 1980</div>
+  </div>
+  <div class="scroll-hint">
+    <span></span>
+    <small>SCROLL</small>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CHAPTER 2: 時代背景
+     ═══════════════════════════════════════ -->
+<section id="context">
+  <div class="chapter-content">
+    <div class="chapter-label">CHAPTER 01</div>
+    <h2 class="chapter-title">時代背景</h2>
+
+    <div class="timeline">
+      <div class="timeline-event" data-reveal>
+        <div class="timeline-year">民國60年 · 1971</div>
+        <div class="timeline-title">退出聯合國</div>
+        <div class="timeline-desc">中華民國退出聯合國，邦交國數量驟減，外交困境迅速浮現。</div>
+      </div>
+
+      <div class="timeline-event" data-reveal>
+        <div class="timeline-year">民國67年 · 1978</div>
+        <div class="timeline-title">余登發案與橋頭事件</div>
+        <div class="timeline-desc">戒嚴三十年後首度出現的政治示威抗議，黨外力量開始凝聚。</div>
+      </div>
+
+      <div class="timeline-event" data-reveal>
+        <div class="timeline-year">民國68年6月 · 1979</div>
+        <div class="timeline-title">《美麗島》雜誌社成立</div>
+        <div class="timeline-desc">發行管理人為姚嘉文及林義雄。雜誌社活動頻遭軍警干擾、砸毀。</div>
+      </div>
+
+      <div class="timeline-event" data-reveal>
+        <div class="timeline-year">民國68年12月10日 · 1979</div>
+        <div class="timeline-title">美麗島事件</div>
+        <div class="timeline-desc">高雄「世界人權日」演講會遭鎮壓。12月13日起，「美麗島大逮捕」開始，林義雄等人均遭拘提。</div>
+      </div>
+
+      <div class="timeline-event" data-reveal>
+        <div class="timeline-year">民國69年2月28日 · 1980</div>
+        <div class="timeline-title" style="color: var(--blood);">林宅血案</div>
+        <div class="timeline-desc" style="color: var(--paper-aged);">美麗島案首度公開審訊之日。兇嫌闖入林宅，造成三死一重傷，林義雄的母親與三位女兒遇害。</div>
+      </div>
+    </div>
+
+    <div class="source-ref">
+      資料來源：促進轉型正義委員會《林義雄宅血案調查報告》第一章第二節
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CHAPTER 3: 案發經過
+     ═══════════════════════════════════════ -->
+<section id="massacre">
+  <div class="chapter-content">
+    <div class="chapter-label">CHAPTER 02</div>
+    <h2 class="chapter-title">案發經過</h2>
+
+    <div class="minute-block" data-reveal>
+      <div class="minute-time">07:00</div>
+      <div class="minute-text">
+        林奐均至<em>幸安國小</em>上學。方素敏外出，前往省議會賓館與友人會面。
+      </div>
+    </div>
+
+    <div class="minute-block" data-reveal>
+      <div class="minute-time">09:05</div>
+      <div class="minute-text">
+        方素敏回到林宅。田秋堇致電聯繫，方素敏告知<em>林游阿妹</em>自己要去軍法處旁聽開庭，請其照看孩子。
+      </div>
+    </div>
+
+    <div class="minute-block" data-reveal>
+      <div class="minute-time">11:09</div>
+      <div class="minute-text">
+        <em>毛清芬</em>從日本打電話至林宅，由林游阿妹接聽。通話結束後，林游阿妹出門至鉅豐照明有限公司從事煮飯及洗碗之工作。留雙胞胎<em>林亮均、林亭均</em>在家。
+      </div>
+    </div>
+
+    <div class="minute-block" data-reveal>
+      <div class="minute-time">11:30</div>
+      <div class="minute-text">
+        方素敏打電話回林宅，由林亭均接聽，並於電話中提及阿嬤（即林游阿妹）剛出門。
+      </div>
+    </div>
+
+    <!-- Horror counter -->
+    <div class="horror-counter" data-reveal>
+      <div class="big-number">80</div>
+      <div class="counter-label">兇嫌在林宅內逗留超過八十分鐘</div>
+    </div>
+
+    <div class="minute-block" data-reveal>
+      <div class="minute-time">12:20</div>
+      <div class="minute-text">
+        <em>林奐均</em>自幸安國小放學返家。按了數次門鈴後，兇嫌開門讓林奐均進入，並尾隨至其房間。兇嫌<em>刺傷林奐均</em>。受傷的林奐均藉著椅子、桌子，越過臥房紗窗，摔落在林宅前側花園地上。
+      </div>
+    </div>
+
+    <div class="minute-block" data-reveal>
+      <div class="minute-time">12:10–12:30</div>
+      <div class="minute-text">
+        方素敏三度打電話回家，因<em>無人接聽</em>，便請田秋堇拿林宅鑰匙返回查看。
+      </div>
+    </div>
+
+    <div class="minute-block" data-reveal>
+      <div class="minute-time">13:12</div>
+      <div class="minute-text" style="color: var(--incense);">
+        警總電監處監聽紀錄：兇嫌自林宅撥打電話至<em>金琴西餐廳</em>，找「<em>王春風（發）</em>」。未待對方接聽，於八秒後掛斷電話。
+      </div>
+    </div>
+
+    <div class="minute-block" data-reveal>
+      <div class="minute-time">13:30–13:49</div>
+      <div class="minute-text">
+        田秋堇抵達林宅。先看見林宅鐵門內的落地玻璃窗開著，接著於林義雄夫婦臥房發現<em>受傷的林奐均</em>。
+      </div>
+    </div>
+
+    <div class="minute-block" data-reveal>
+      <div class="minute-time">15:30</div>
+      <div class="minute-text" style="color: var(--dust);">
+        臺北市刑大警員於林宅地下室樓梯間發現<em>雙胞胎</em>陳屍地下室儲藏室。至此，林宅血案被害人均已被尋獲。
+      </div>
+    </div>
+
+    <div class="source-ref">
+      資料來源：促轉會調查報告 pp.8-11；監察院糾正案文 pp.3-5
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CHAPTER 5: 監控真相
+     ═══════════════════════════════════════ -->
+<section id="surveillance">
+  <div class="chapter-content">
+    <div class="chapter-label" style="color: var(--blood);">CHAPTER 04</div>
+    <h2 class="chapter-title">監控真相</h2>
+
+    <div class="document-page">
+      <div class="stamp-overlay">解密</div>
+
+      <div class="doc-header">
+        <div class="doc-classification">原列 機密</div>
+        <div class="doc-title">三○七指導會報 案情綜合研判</div>
+      </div>
+
+      <div class="doc-body">
+        <p style="margin-bottom: 1.5em;">
+          案發後國安局上呈<span class="redacted" onclick="this.classList.toggle('revealed')">蔣經國總統</span>之情資指出：「案發後興論暗示兇手可能為美麗島事件嫌疑犯家屬、<span class="redacted" onclick="this.classList.toggle('revealed')">黨外人士</span>、台獨或其同路人、國際有關組織，但這些均不可能。」
+        </p>
+        <p style="margin-bottom: 1.5em;">
+          「本案非國民黨政策所為，國民黨不願背此黑鍋。本案非島內<span class="redacted" onclick="this.classList.toggle('revealed')">黨外人士</span>所為，因島內黨外人士大都在獄中，剩下的無此能力。」
+        </p>
+        <p style="margin-bottom: 1.5em;">
+          研判結論：<strong style="color: var(--blood-dark);">「可能係國民黨內鷹派的<span class="redacted" onclick="this.classList.toggle('revealed')">軍派人物</span>所為」</strong>
+        </p>
+        <p style="margin-bottom: 1.5em; border-top: 1px solid #ccc; padding-top: 1em;">
+          然三○七指導會報卻自始排除此一偵辦方向，反而虛構「<span class="redacted" onclick="this.classList.toggle('revealed')">林義雄在偵訊中出賣他人</span>」等不實理由，將偵辦主軸導向「陰謀分子內部報復」及「國際幕後操縱」。
+        </p>
+
+        <div class="doc-margin-note" style="top: 30%;">甲(一)來源可靠</div>
+      </div>
+
+      <div class="source-ref" style="color: #666; border-top-color: #ccc;">
+        資料來源：監察院糾正案文 pp.9-10；促轉會報告 pp.65-66
+      </div>
+    </div>
+
+    <div style="max-width: 640px; margin-top: var(--space-lg);">
+      <p style="font-family: var(--font-literary); color: var(--dust); line-height: 2; font-size: 0.95rem;">
+        點擊<span style="background: var(--ink); color: transparent; padding: 0 0.3em; border-radius: 2px; cursor: pointer;" onclick="this.style.background='rgba(153,27,27,0.15)'; this.style.color='var(--blood)';">黑色遮蔽處</span>可揭示被隱匿的關鍵資訊。四十多年來，這些真相被層層掩蓋。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CHAPTER 6: 未解之謎
+     ═══════════════════════════════════════ -->
+<section id="mysteries">
+  <div class="chapter-content">
+    <div class="chapter-label">CHAPTER 05</div>
+    <h2 class="chapter-title">未解之謎</h2>
+
+    <div class="mystery-card" onclick="this.classList.toggle('expanded')">
+      <div class="mystery-number">MYSTERY 01</div>
+      <div class="mystery-question">為何從未公布兇嫌模擬畫像？</div>
+      <div class="mystery-detail">
+        倖存者林奐均及目擊證人陳永忠均詳細描述兇手外觀。偵辦人員多次建議公布兇嫌模擬畫像及特徵，配合高額獎金鼓勵民眾檢舉，但三○七指導會報竟<strong>不予裁示</strong>。
+      </div>
+    </div>
+
+    <div class="mystery-card" onclick="this.classList.toggle('expanded')">
+      <div class="mystery-number">MYSTERY 02</div>
+      <div class="mystery-question">監聽錄音帶為何「已沖掉」？</div>
+      <div class="mystery-detail">
+        專案小組多次請求提供兇嫌自林宅撥打電話至金琴西餐廳的監聽錄音，國安局卻簽報稱「錄音帶已沖掉」。然而警總支援小組會議紀錄明確記載：「錄音帶均已保留」。
+      </div>
+    </div>
+
+    <div class="mystery-card" onclick="this.classList.toggle('expanded')">
+      <div class="mystery-number">MYSTERY 03</div>
+      <div class="mystery-question">金琴西餐廳的「王春風（發）」是誰？</div>
+      <div class="mystery-detail">
+        兇嫌於行兇後自林宅撥打電話至金琴西餐廳找「王春風（發）」，可能為代號、暗號或表示「作案成功」。專案小組擬前往金琴餐廳扣押點餐單及簽帳單，欲由指紋逐一清查，然報請核准卻拖延三日，相關單據竟已遭銷燬。
+      </div>
+    </div>
+
+    <div class="mystery-card" onclick="this.classList.toggle('expanded')">
+      <div class="mystery-number">MYSTERY 04</div>
+      <div class="mystery-question">案發當天，監控人員為何被調走？</div>
+      <div class="mystery-detail">
+        警總保安處組長許覺民證稱：林義雄被捕後，警總有派員在林宅周邊「戒護」，但「戒護人力於林宅血案案發生當日，被調至軍法處」。在嚴密監控下竟發生命案——若非情治單位執行或默使其發生，豈有可能成事？
+      </div>
+    </div>
+
+    <div class="source-ref">
+      資料來源：監察院糾正案文 pp.14-20；促轉會報告 第二章
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CHAPTER 7: 行動呼籲
+     ═══════════════════════════════════════ -->
+<section id="action">
+  <div class="chapter-content">
+    <div class="chapter-label">EPILOGUE</div>
+    <h2 class="action-title">四十多年過去了<br>我們還能做什麼？</h2>
+
+    <div class="action-grid">
+      <div class="action-card">
+        <h3>閱讀原始報告</h3>
+        <p>促轉會、高檢署、監察院三份政府公開調查報告，是理解此案最完整的一手資料。</p>
+      </div>
+      <div class="action-card">
+        <h3>認識轉型正義</h3>
+        <p>了解促進轉型正義委員會的工作，以及臺灣在處理白色恐怖歷史上的努力與未竟之業。</p>
+      </div>
+      <div class="action-card">
+        <h3>參與社群討論</h3>
+        <p>在 GitHub 上提交 Pull Request，分享你的心得、創作改寫，讓更多人認識這段歷史。</p>
+      </div>
+      <div class="action-card">
+        <h3>拒絕歷史扭曲</h3>
+        <p>面對未經授權且扭曲史實的改編作品，以事實為基礎，捍衛歷史真相的完整性。</p>
+      </div>
+    </div>
+
+    <div style="margin-top: var(--space-xl); color: var(--stone); font-family: var(--font-literary); font-size: 0.8rem; line-height: 2;">
+      本網站所有歷史敘述均取材自政府公開文件<br>
+      促進轉型正義委員會《林義雄宅血案調查報告》(民國109年)<br>
+      高檢署《林宅血案、陳文成命案重啟調查偵查報告》<br>
+      監察院 監112內正0004 糾正案文
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SCROLL REVEAL SCRIPT
+     ═══════════════════════════════════════ -->
+<script>
+  // Intersection Observer for scroll reveals
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
+  });
+
+  document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+  // Nav active state
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('nav a');
+
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  sections.forEach(section => navObserver.observe(section));
+</script>
+
+</body>
+</html>
