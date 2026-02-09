@@ -86,6 +86,16 @@ body::after {
   100% { transform: translate(2px, 1px); }
 }
 
+/* === Scroll Snap Container === */
+
+.scroll-snap-container {
+  scroll-snap-type: y proximity;
+}
+
+.scroll-snap-container > section {
+  scroll-snap-align: start;
+}
+
 /* === Scroll Reveal Base === */
 
 [data-reveal] {
