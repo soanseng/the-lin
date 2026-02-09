@@ -67,13 +67,19 @@ npm run lint         # ESLint 檢查
 npm run type-check   # TypeScript 型別檢查
 ```
 
+## 留言板
+
+網站內建留言板（基於 [giscus](https://giscus.app/)），位於第七章「行動呼籲」底部。使用 GitHub 帳號登入即可留言，所有留言會同步保存在本專案的 [Discussions](https://github.com/soanseng/the-lin/discussions/14) 頁面。
+
+不需要任何技術背景，只要有話想說，就能留下你的聲音。
+
 ## 參與貢獻
 
 這是一個開源專案，歡迎任何形式的參與。詳見 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 你可以：
+- 在[留言板](https://github.com/soanseng/the-lin/discussions/14)分享讀後感想
 - 提交內容勘誤（須附來源文件頁碼）
-- 撰寫讀後筆記或研究心得
 - 回報問題或提出功能建議
 - 改善程式碼、設計或無障礙體驗
 

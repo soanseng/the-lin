@@ -1,6 +1,7 @@
 import { Section } from '../components/layout/Section'
 import { ChapterHeader } from '../components/layout/ChapterHeader'
 import { ScrollReveal } from '../components/narrative/ScrollReveal'
+import { Guestbook } from '../components/interactive/Guestbook'
 
 // ─── Data ───────────────────────────────────────────────────
 
@@ -331,8 +332,8 @@ export function CallToAction() {
               delay={300}
             >
               <p className="mb-5 font-narrative text-[0.82rem] leading-7 text-dust">
-                這是一個開源專案。歡迎提交 Pull Request，貢獻你的研究筆記、
-                讀後感想、文學創作、小說改編構想。
+                這是一個開源專案。你可以在下方留言板分享讀後感想，
+                也歡迎提交 Pull Request 貢獻研究筆記或功能改善。
               </p>
 
               <a
@@ -402,7 +403,16 @@ export function CallToAction() {
       </Section>
 
       {/* ============================================
-          SECTION 4: Credits & Source Attribution
+          SECTION 4: Guestbook
+          ============================================ */}
+      <Section id="cta-guestbook" background="ash">
+        <ScrollReveal>
+          <Guestbook />
+        </ScrollReveal>
+      </Section>
+
+      {/* ============================================
+          SECTION 5: Credits & Source Attribution
           ============================================ */}
       <Section id="cta-credits" background="ink">
         <div className="w-full max-w-[640px]">
