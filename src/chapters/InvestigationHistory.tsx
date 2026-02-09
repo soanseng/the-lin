@@ -4,6 +4,7 @@ import { ScrollReveal } from '../components/narrative/ScrollReveal'
 import { DocumentPage } from '../components/narrative/DocumentPage'
 import { Timeline } from '../components/timeline/Timeline'
 import { TimelineEvent } from '../components/timeline/TimelineEvent'
+import { InvestigationMaze } from '../components/interactive/InvestigationMaze'
 import { investigationPhases, conclusions } from '../data/investigations'
 import { investigationTimeline } from '../data/timeline'
 
@@ -71,7 +72,7 @@ function PhaseCard({
         )}
 
         {/* Description */}
-        <p className="mb-6 font-narrative text-[0.9rem] leading-8 text-paper-burnt">
+        <p className="mb-6 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-paper-burnt">
           {phase.description}
         </p>
 
@@ -171,10 +172,10 @@ function ObstructionPattern() {
 
         {/* Frustration statement */}
         <div className="mt-8 border-t border-smoke pt-8 text-center">
-          <p className="font-literary text-[0.95rem] leading-8 text-dust">
+          <p className="font-literary text-[clamp(0.9rem,2vw,0.95rem)] leading-[2] text-dust">
             七次調查。四十餘年。同一個結果。
           </p>
-          <p className="mt-2 font-narrative text-[1.1rem] font-bold leading-8 text-blood">
+          <p className="mt-2 font-narrative text-[clamp(1rem,2.5vw,1.1rem)] font-bold leading-[1.8] text-blood">
             真相依然被掩埋。
           </p>
         </div>
@@ -209,7 +210,7 @@ export function InvestigationHistory() {
           </p>
         </ScrollReveal>
         <ScrollReveal delay={200}>
-          <p className="mb-16 font-literary text-[0.95rem] leading-8 text-dust">
+          <p className="mb-16 font-literary text-[clamp(0.9rem,2vw,0.95rem)] leading-[2] text-dust">
             從戒嚴時代的情治機關介入操控，到民主化後的檔案毀損與消極配合，
             林宅血案的調查歷程本身，就是一部國家如何系統性阻礙真相的紀錄。
           </p>
@@ -230,7 +231,7 @@ export function InvestigationHistory() {
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
-          <p className="mb-12 font-narrative text-[0.9rem] leading-8 text-dust">
+          <p className="mb-12 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
             案發翌日起，三個專案同時展開——表面上是傾全力偵辦，實則由國安局主導，
             將調查方向鎖定在「國家敵人」身上，有系統地將刑事偵查人員隔絕於關鍵情報之外。
           </p>
@@ -332,7 +333,7 @@ export function InvestigationHistory() {
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
-          <p className="mb-12 font-narrative text-[0.9rem] leading-8 text-dust">
+          <p className="mb-12 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
             解嚴之後，歷屆政府多次重啟調查——然而年代久遠、檔案散佚、
             物證劣化、天災毀損，加上情治機關持續隱匿監控紀錄，
             每一次都無法取得突破。直到促轉會成立，方首度揭露系統性監控之事實。
@@ -365,6 +366,13 @@ export function InvestigationHistory() {
 
         {/* ─── Obstruction Pattern Summary ─────────────── */}
         <ObstructionPattern />
+
+        {/* ─── Interactive: Investigation Maze ────────── */}
+        <ScrollReveal>
+          <div className="my-16">
+            <InvestigationMaze />
+          </div>
+        </ScrollReveal>
 
         {/* ─── Key Document: 549 Volumes ──────────────── */}
         <ScrollReveal>

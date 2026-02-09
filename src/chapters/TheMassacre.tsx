@@ -6,6 +6,7 @@ import { MinuteBlock } from '../components/narrative/MinuteBlock'
 import { HorrorCounter } from '../components/narrative/HorrorCounter'
 import { ScrollReveal } from '../components/narrative/ScrollReveal'
 import { Redacted } from '../components/narrative/Redacted'
+import { TimelinePuzzle } from '../components/interactive/TimelinePuzzle'
 
 // ── Helpers ──────────────────────────────────────────────────
 
@@ -31,7 +32,7 @@ export function TheMassacre() {
         <ChapterHeader label="CHAPTER 03" title="案發經過" />
 
         <ScrollReveal>
-          <p className="max-w-[680px] font-literary text-base leading-8 tracking-wide text-dust">
+          <p className="max-w-[680px] font-literary text-[clamp(0.9rem,2vw,1rem)] leading-[2] tracking-wide text-dust">
             民國六十九年二月二十八日。美麗島軍事審判首度公開調查庭之日。
             <br />
             林義雄被羈押在警備總部軍法處看守所內。
@@ -45,6 +46,25 @@ export function TheMassacre() {
             以下時間軸根據促轉會調查報告附錄1（pp. 91-101）及電話監聽紀錄重建。
           </p>
         </ScrollReveal>
+      </Section>
+
+      {/* ────── Interactive: Timeline Puzzle ────── */}
+      <Section id="massacre-puzzle" vignette background="ink">
+        <div className="w-full max-w-[780px]">
+          <ScrollReveal>
+            <h3 className="mb-2 text-center font-heading text-[0.65rem] uppercase tracking-[0.4em] text-stone">
+              INTERACTIVE — 互動體驗
+            </h3>
+            <h4 className="mb-4 text-center font-narrative text-[clamp(1.3rem,4vw,2rem)] font-bold text-paper-aged">
+              時間線拼圖
+            </h4>
+            <p className="mb-12 text-center font-narrative text-[0.9rem] leading-8 text-dust">
+              民國69年2月28日——你能還原那一天的真實順序嗎？
+            </p>
+          </ScrollReveal>
+
+          <TimelinePuzzle />
+        </div>
       </Section>
 
       {/* ────── Phase 1: Morning Normalcy ────── */}
@@ -197,13 +217,13 @@ export function TheMassacre() {
 
         <ScrollReveal>
           <div className="mb-24 max-w-[680px] space-y-6 border-l-2 border-blood-dark/50 pl-8">
-            <p className="font-literary text-lg leading-9 text-paper-aged">
+            <p className="font-literary text-[clamp(1rem,2.5vw,1.125rem)] leading-[2] text-paper-aged">
               在約莫上午十一時至下午一時之間，一名男子進入了林宅。
             </p>
-            <p className="text-base leading-8 text-dust">
+            <p className="text-[clamp(0.9rem,2vw,1rem)] leading-[2] text-dust">
               {noForcedEntry.description}
             </p>
-            <p className="text-base leading-8 text-paper-aged">
+            <p className="text-[clamp(0.9rem,2vw,1rem)] leading-[2] text-paper-aged">
               兇手在宅內停留超過八十分鐘。熟知房屋格局。
               熟知家中成員作息。
               知道這段時間只有老幼在家。
@@ -457,7 +477,7 @@ export function TheMassacre() {
               SUSPECT PROFILE
             </p>
 
-            <p className="font-literary text-lg leading-9 text-paper-aged">
+            <p className="font-literary text-[clamp(1rem,2.5vw,1.125rem)] leading-[2] text-paper-aged">
               「穿著深色衣服、結領帶、體型高瘦約171公分、膚黑、臉略長、
               兩腮稍寬、兩眉毛粗長、蓄長髮至頸部、頭髮油亮右分、約30歲之本國人。」
             </p>

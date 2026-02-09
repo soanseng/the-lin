@@ -13,7 +13,8 @@ export function MysteryCard({ number, question, detail }: MysteryCardProps) {
     <div
       role="button"
       tabIndex={0}
-      className={`relative mb-8 w-full max-w-[640px] cursor-pointer overflow-hidden border border-smoke p-8 transition-all duration-500 hover:border-stone hover:bg-white/[0.02] sm:p-16`}
+      className={`relative mb-8 w-full max-w-[640px] cursor-pointer overflow-hidden border border-smoke p-6 transition-all duration-500 hover:border-stone hover:bg-white/[0.02] sm:p-8 md:p-16`}
+      style={{ touchAction: 'manipulation' }}
       onClick={() => setExpanded((prev) => !prev)}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -36,7 +37,7 @@ export function MysteryCard({ number, question, detail }: MysteryCardProps) {
         {question}
       </div>
       <div
-        className={`overflow-hidden font-literary text-[0.9rem] leading-8 text-dust transition-[max-height] duration-600 ${
+        className={`overflow-hidden font-literary text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust transition-[max-height] duration-600 ${
           expanded ? 'max-h-[300px]' : 'max-h-0'
         }`}
       >

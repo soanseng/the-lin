@@ -48,18 +48,24 @@ body {
   background-color: var(--color-void);
   color: var(--color-paper-aged);
   font-family: var(--font-narrative);
-  font-size: 18px;
+  font-size: clamp(16px, 1vw + 14px, 18px);
   line-height: 1.9;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
-@media (max-width: 640px) {
-  body {
-    font-size: 16px;
-    line-height: 1.85;
-  }
+/* === Chinese Text Readability === */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+p {
+  line-height: 1.9;
 }
 
 /* === Film Grain Overlay === */
@@ -76,14 +82,16 @@ body::after {
   background-size: 256px;
   mix-blend-mode: overlay;
   animation: grain 0.5s steps(1) infinite;
+  will-change: transform;
+  contain: strict;
 }
 
 @keyframes grain {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(-2px, 3px); }
-  50% { transform: translate(3px, -1px); }
-  75% { transform: translate(-1px, -3px); }
-  100% { transform: translate(2px, 1px); }
+  0% { transform: translate3d(0, 0, 0); }
+  25% { transform: translate3d(-2px, 3px, 0); }
+  50% { transform: translate3d(3px, -1px, 0); }
+  75% { transform: translate3d(-1px, -3px, 0); }
+  100% { transform: translate3d(2px, 1px, 0); }
 }
 
 /* === Scroll Snap Container === */
@@ -92,7 +100,10 @@ body::after {
   scroll-snap-type: y proximity;
 }
 
-.scroll-snap-container > section {
+.scroll-snap-container > section,
+.scroll-snap-container > article > section,
+.scroll-snap-container > div > section,
+.scroll-snap-container > div > article > section {
   scroll-snap-align: start;
 }
 
@@ -102,11 +113,13 @@ body::after {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: transform, opacity;
 }
 
 [data-reveal].revealed {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto;
 }
 
 /* === Keyframes === */
@@ -114,12 +127,34 @@ body::after {
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translate3d(0, 20px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
+}
+
+/* === Loading Fallback === */
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.chapter-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--color-void);
+}
+
+.chapter-loading-indicator {
+  width: 24px;
+  height: 2px;
+  background: var(--color-smoke);
+  animation: pulse-subtle 2s ease-in-out infinite;
 }
 
 /* === Reduced Motion === */
@@ -129,7 +164,26 @@ body::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
   html { scroll-behavior: auto; }
   body::after { display: none; }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+}
+
+/* === Vignette Performance === */
+
+.vignette-overlay {
+  box-shadow: inset 0 0 250px 80px rgba(0,0,0,0.6);
+}
+
+@media (max-width: 640px) {
+  .vignette-overlay {
+    box-shadow: inset 0 0 120px 40px rgba(0,0,0,0.5);
+  }
 }

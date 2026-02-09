@@ -152,7 +152,7 @@ export function HistoricalContext() {
         {linYiHsiung && (
           <ScrollReveal className="mb-20" delay={300}>
             <div className="rounded border-l-2 border-blood bg-ash/30 p-6">
-              <div className="mb-2 font-heading text-base font-bold text-blood">
+              <div className="mb-2 font-heading text-[clamp(0.9rem,2vw,1rem)] font-bold text-blood">
                 林義雄
               </div>
               <p className="font-narrative text-[clamp(0.9rem,2vw,1rem)] leading-relaxed text-paper-aged">

@@ -21,12 +21,12 @@ export function TimelineEvent({
 
       <div className="mb-1 font-document text-xs tracking-[0.15em] text-blood">{year}</div>
       <div
-        className={`mb-2 font-heading text-[1.1rem] font-bold ${highlight ? 'text-blood' : 'text-paper-aged'}`}
+        className={`mb-2 font-heading text-[clamp(0.95rem,2.5vw,1.1rem)] font-bold leading-[1.5] ${highlight ? 'text-blood' : 'text-paper-aged'}`}
       >
         {title}
       </div>
       <div
-        className={`font-literary text-[0.9rem] leading-7 ${highlight ? 'text-paper-aged' : 'text-dust'}`}
+        className={`font-literary text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] ${highlight ? 'text-paper-aged' : 'text-dust'}`}
       >
         {description}
       </div>

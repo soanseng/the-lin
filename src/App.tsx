@@ -1,15 +1,39 @@
-import { useRef } from 'react'
+import { lazy, Suspense, useRef } from 'react'
 import { useScrollReveal } from './hooks/useScrollReveal'
-import { ContentWarning } from './chapters/ContentWarning'
-import { Prologue } from './chapters/Prologue'
-import { HistoricalContext } from './chapters/HistoricalContext'
-import { TheMassacre } from './chapters/TheMassacre'
-import { InvestigationHistory } from './chapters/InvestigationHistory'
-import { SurveillanceTruth } from './chapters/SurveillanceTruth'
-import { UnsolvedMysteries } from './chapters/UnsolvedMysteries'
-import { CallToAction } from './chapters/CallToAction'
 import { Navigation } from './components/layout/Navigation'
 import { ChapterTransition } from './components/layout/ChapterTransition'
+
+// Lazy-load each chapter for code splitting (critical for mobile performance)
+const ContentWarning = lazy(() =>
+  import('./chapters/ContentWarning').then((m) => ({ default: m.ContentWarning })),
+)
+const Prologue = lazy(() =>
+  import('./chapters/Prologue').then((m) => ({ default: m.Prologue })),
+)
+const HistoricalContext = lazy(() =>
+  import('./chapters/HistoricalContext').then((m) => ({ default: m.HistoricalContext })),
+)
+const TheMassacre = lazy(() =>
+  import('./chapters/TheMassacre').then((m) => ({ default: m.TheMassacre })),
+)
+const InvestigationHistory = lazy(() =>
+  import('./chapters/InvestigationHistory').then((m) => ({
+    default: m.InvestigationHistory,
+  })),
+)
+const SurveillanceTruth = lazy(() =>
+  import('./chapters/SurveillanceTruth').then((m) => ({
+    default: m.SurveillanceTruth,
+  })),
+)
+const UnsolvedMysteries = lazy(() =>
+  import('./chapters/UnsolvedMysteries').then((m) => ({
+    default: m.UnsolvedMysteries,
+  })),
+)
+const CallToAction = lazy(() =>
+  import('./chapters/CallToAction').then((m) => ({ default: m.CallToAction })),
+)
 
 const navItems = [
   { id: 'content-warning', label: '內容警告' },
@@ -21,6 +45,15 @@ const navItems = [
   { id: 'unsolved-mysteries', label: '未解之謎' },
   { id: 'call-to-action', label: '行動呼籲' },
 ]
+
+/** Minimal loading fallback — dark bg with subtle pulse */
+function ChapterFallback() {
+  return (
+    <div className="chapter-loading">
+      <div className="chapter-loading-indicator" />
+    </div>
+  )
+}
 
 function App() {
   useScrollReveal()
@@ -34,23 +67,39 @@ function App() {
     <>
       <Navigation items={navItems} />
       <main className="scroll-snap-container">
-        <ContentWarning onEnter={handleEnter} />
+        <Suspense fallback={<ChapterFallback />}>
+          <ContentWarning onEnter={handleEnter} />
+        </Suspense>
         <ChapterTransition variant="fade" />
         <div ref={prologueRef}>
-          <Prologue />
+          <Suspense fallback={<ChapterFallback />}>
+            <Prologue />
+          </Suspense>
         </div>
         <ChapterTransition variant="ink" />
-        <HistoricalContext />
+        <Suspense fallback={<ChapterFallback />}>
+          <HistoricalContext />
+        </Suspense>
         <ChapterTransition variant="blood" />
-        <TheMassacre />
+        <Suspense fallback={<ChapterFallback />}>
+          <TheMassacre />
+        </Suspense>
         <ChapterTransition variant="ink" />
-        <InvestigationHistory />
+        <Suspense fallback={<ChapterFallback />}>
+          <InvestigationHistory />
+        </Suspense>
         <ChapterTransition variant="blood" />
-        <SurveillanceTruth />
+        <Suspense fallback={<ChapterFallback />}>
+          <SurveillanceTruth />
+        </Suspense>
         <ChapterTransition variant="ink" />
-        <UnsolvedMysteries />
+        <Suspense fallback={<ChapterFallback />}>
+          <UnsolvedMysteries />
+        </Suspense>
         <ChapterTransition variant="fade" />
-        <CallToAction />
+        <Suspense fallback={<ChapterFallback />}>
+          <CallToAction />
+        </Suspense>
       </main>
     </>
   )

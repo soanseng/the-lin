@@ -12,11 +12,12 @@ export function Redacted({ children }: RedactedProps) {
       role="button"
       tabIndex={0}
       aria-label={revealed ? undefined : '點擊揭示隱藏文字'}
-      className={`inline cursor-pointer select-none rounded-sm px-[0.3em] transition-all duration-700 ${
+      className={`inline cursor-pointer select-none rounded-sm px-[0.3em] py-[0.15em] transition-all duration-700 ${
         revealed
           ? 'bg-blood/15 text-blood underline decoration-wavy underline-offset-4'
           : 'bg-ink text-transparent'
       }`}
+      style={{ minHeight: '44px', minWidth: '44px', touchAction: 'manipulation' }}
       onClick={() => setRevealed((prev) => !prev)}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {

@@ -6,8 +6,7 @@ export function ContentWarning({ onEnter }: ContentWarningProps) {
   return (
     <section
       id="content-warning"
-      className="flex min-h-screen flex-col items-center justify-center bg-void"
-      style={{ boxShadow: 'inset 0 0 250px 80px rgba(0,0,0,0.6)' }}
+      className="flex min-h-screen flex-col items-center justify-center bg-void vignette-overlay px-4"
     >
       <div className="max-w-[540px] border border-stone p-8 sm:p-16">
         <div className="mb-8 font-heading text-xs tracking-[0.3em] uppercase text-dust">
@@ -18,7 +17,7 @@ export function ContentWarning({ onEnter }: ContentWarningProps) {
           <br />
           及兇殺案件之相關內容
         </h1>
-        <p className="mb-16 font-literary text-[0.95rem] leading-8 text-dust">
+        <p className="mb-16 font-literary text-[clamp(0.9rem,2vw,0.95rem)] leading-8 text-dust">
           以下內容取材自促進轉型正義委員會、最高檢察署
           <br className="hidden sm:block" />
           及監察院之公開調查報告，涉及1980年林宅血案
@@ -27,7 +26,7 @@ export function ContentWarning({ onEnter }: ContentWarningProps) {
         </p>
         <button
           onClick={onEnter}
-          className="cursor-pointer border border-blood-dark bg-transparent px-10 py-3 font-heading text-sm tracking-[0.15em] text-blood transition-all duration-400 hover:border-blood hover:bg-blood-dark hover:text-paper-aged"
+          className="min-h-[44px] cursor-pointer border border-blood-dark bg-transparent px-10 py-3 font-heading text-sm tracking-[0.15em] text-blood transition-all duration-400 hover:border-blood hover:bg-blood-dark hover:text-paper-aged active:bg-blood-dark active:text-paper-aged"
         >
           我了解，繼續閱讀
         </button>

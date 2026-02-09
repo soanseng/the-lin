@@ -88,7 +88,7 @@ function ActionCard({
         >
           {number}
         </div>
-        <h4 className="mb-1 font-heading text-[1.2rem] font-bold text-paper-aged">
+        <h4 className="mb-1 font-heading text-[clamp(1.05rem,2.5vw,1.2rem)] font-bold leading-[1.5] text-paper-aged">
           {title}
         </h4>
         <div className="mb-5 font-document text-[0.6rem] tracking-[0.1em] text-stone">
@@ -115,7 +115,7 @@ function DocumentLink({
         href={doc.filename}
         target="_blank"
         rel="noopener noreferrer"
-        className="group block border border-smoke/40 bg-ash/40 p-5 transition-all duration-300 hover:border-incense/40 hover:bg-ash/80"
+        className="group block min-h-[44px] border border-smoke/40 bg-ash/40 p-5 transition-all duration-300 hover:border-incense/40 hover:bg-ash/80"
       >
         <div className="mb-1 font-heading text-[0.95rem] font-bold text-paper-aged transition-colors group-hover:text-incense">
           {doc.title}
@@ -149,7 +149,7 @@ function ExternalLink({
         href={link.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="group block border-l border-smoke/40 py-3 pl-5 transition-all duration-300 hover:border-incense/40"
+        className="group block min-h-[44px] border-l border-smoke/40 py-3 pl-5 transition-all duration-300 hover:border-incense/40"
       >
         <div className="font-heading text-[0.9rem] font-bold text-paper-aged transition-colors group-hover:text-incense">
           {link.title}
@@ -179,7 +179,7 @@ function ShareLink({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-block border border-smoke/60 bg-ink/60 px-5 py-3 font-heading text-[0.75rem] tracking-[0.15em] text-dust transition-all duration-300 hover:border-incense/50 hover:text-incense"
+        className="inline-block min-h-[44px] border border-smoke/60 bg-ink/60 px-5 py-3 font-heading text-[0.75rem] tracking-[0.15em] text-dust transition-all duration-300 hover:border-incense/50 hover:text-incense active:text-incense"
       >
         {platform}
       </a>
@@ -236,14 +236,14 @@ export function CallToAction() {
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <p className="mb-6 font-narrative text-[0.9rem] leading-9 text-dust">
+            <p className="mb-6 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
               二〇二四年，一部未經家屬授權的電影聲稱改編自林宅血案。
               影片扭曲歷史，以聳動手法消費受害者家屬的傷痛，引發社會爭議。
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={400}>
-            <p className="mb-6 font-narrative text-[0.9rem] leading-9 text-dust">
+            <p className="mb-6 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
               然而，真正的調查報告——由促轉會、高檢署、監察院三個機關歷經數十年調查的成果——
               卻鮮少有人完整閱讀。
             </p>
@@ -251,10 +251,10 @@ export function CallToAction() {
 
           <ScrollReveal delay={600}>
             <div className="border-l-2 border-incense/40 bg-ash/40 px-6 py-5">
-              <p className="font-literary text-[0.95rem] leading-9 text-paper-aged">
+              <p className="font-literary text-[clamp(0.9rem,2vw,0.95rem)] leading-[2] text-paper-aged">
                 我們相信：對抗歷史扭曲最好的方式，不是憤怒，而是讓更多人讀到原始資料。
               </p>
-              <p className="mt-4 font-literary text-[0.95rem] leading-9 text-paper-aged">
+              <p className="mt-4 font-literary text-[clamp(0.9rem,2vw,0.95rem)] leading-[2] text-paper-aged">
                 這個網站的每一句話，都來自公開的政府調查文件。
                 沒有虛構，沒有推測，只有檔案裡的事實。
               </p>
@@ -262,7 +262,7 @@ export function CallToAction() {
           </ScrollReveal>
 
           <ScrollReveal delay={800}>
-            <p className="mt-8 font-narrative text-[0.9rem] leading-9 text-dust">
+            <p className="mt-8 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
               我們希望這些資料不再只是塵封的 PDF，
               而能成為每一個關心台灣歷史的人都能閱讀、理解、傳遞的故事。
             </p>
@@ -339,7 +339,7 @@ export function CallToAction() {
                 href="https://github.com/soanseng/the-lin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 border border-smoke/60 bg-void/40 px-5 py-3 transition-all duration-300 hover:border-incense/50 hover:bg-void/60"
+                className="group inline-flex min-h-[44px] items-center gap-3 border border-smoke/60 bg-void/40 px-5 py-3 transition-all duration-300 hover:border-incense/50 hover:bg-void/60"
               >
                 <span className="font-document text-[0.7rem] tracking-[0.1em] text-dust transition-colors group-hover:text-incense">
                   GitHub

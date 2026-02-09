@@ -16,7 +16,7 @@ export function MinuteBlock({ time, children, highlight = false }: MinuteBlockPr
       >
         {time}
       </div>
-      <div className="border-l-2 border-smoke pl-8 font-narrative text-[1.1rem] leading-8 text-paper-aged transition-colors duration-500 group-hover:border-l-blood-dark">
+      <div className="border-l-2 border-smoke pl-6 font-narrative text-[clamp(0.95rem,2.2vw,1.1rem)] leading-[2] text-paper-aged transition-colors duration-500 group-hover:border-l-blood-dark sm:pl-8">
         {children}
       </div>
     </div>

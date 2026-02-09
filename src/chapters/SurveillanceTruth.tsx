@@ -4,6 +4,7 @@ import { DocumentPage } from '../components/narrative/DocumentPage'
 import { Redacted } from '../components/narrative/Redacted'
 import { ScrollReveal } from '../components/narrative/ScrollReveal'
 import { SourceRef } from '../components/narrative/SourceRef'
+import { SurveillanceDecryption } from '../components/interactive/SurveillanceDecryption'
 import {
   agencies,
   methods,
@@ -212,7 +213,7 @@ export function SurveillanceTruth() {
             <h4 className="mb-4 font-narrative text-[clamp(1.3rem,4vw,2rem)] font-bold text-paper-aged">
               四個情治機關，同步監控一個家庭
             </h4>
-            <p className="mb-12 max-w-[560px] font-narrative text-[0.9rem] leading-8 text-dust">
+            <p className="mb-12 max-w-[560px] font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
               美麗島事件後，<Redacted>國安局、警總、調查局、憲兵司令部</Redacted>四大情治機關聯合對林義雄及其家屬進行全方位監控。
               每一通電話、每一次訪客、每一句私語，都在國家機器的耳目之下。
             </p>
@@ -238,7 +239,7 @@ export function SurveillanceTruth() {
             <h4 className="mb-4 font-narrative text-[clamp(1.3rem,4vw,2rem)] font-bold text-paper-aged">
               監控手段
             </h4>
-            <p className="mb-12 font-narrative text-[0.9rem] leading-8 text-dust">
+            <p className="mb-12 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
               情治機關對林宅之監控，已達<Redacted>鉅細靡遺</Redacted>之程度。
             </p>
           </ScrollReveal>
@@ -300,6 +301,28 @@ export function SurveillanceTruth() {
       </Section>
 
       {/* ============================================
+          SECTION 4.5: Interactive Decryption
+          ============================================ */}
+      <Section id="surveillance-decryption" background="void" vignette>
+        <div className="w-full max-w-[780px]">
+          <ScrollReveal>
+            <h3 className="mb-2 text-center font-heading text-[0.65rem] uppercase tracking-[0.4em] text-stone">
+              INTERACTIVE — 互動體驗
+            </h3>
+            <h4 className="mb-4 text-center font-narrative text-[clamp(1.3rem,4vw,2rem)] font-bold text-paper-aged">
+              監聽解密
+            </h4>
+            <p className="mb-12 text-center font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
+              以下為促轉會首次揭露之六份關鍵監聽紀錄。<br />
+              點擊黑色遮蔽區域，逐一解密被掩蓋四十年的真相。
+            </p>
+          </ScrollReveal>
+
+          <SurveillanceDecryption />
+        </div>
+      </Section>
+
+      {/* ============================================
           SECTION 5: The Day the Guards Vanished
           — The most horrifying document page
           ============================================ */}
@@ -317,7 +340,7 @@ export function SurveillanceTruth() {
               </p>
 
               <blockquote className="mb-6 border-l-2 border-blood/60 bg-blood-dark/5 px-5 py-4">
-                <p className="font-literary text-[0.9rem] leading-8 text-smoke">
+                <p className="font-literary text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-smoke">
                   案發前在林宅附近設有「戒護」人員看護，但案發當日該等人員恰被
                   <Redacted>「調至軍法處」</Redacted>。
                 </p>
@@ -349,7 +372,7 @@ export function SurveillanceTruth() {
             <h4 className="mb-4 font-narrative text-[clamp(1.3rem,4vw,2rem)] font-bold text-paper-aged">
               系統性滅證
             </h4>
-            <p className="mb-12 font-narrative text-[0.9rem] leading-8 text-dust">
+            <p className="mb-12 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
               以下為情治機關<Redacted>系統性阻撓偵查、銷毀證據</Redacted>之時序紀錄。
               每一筆操作都指向同一個結論：有人不希望真相被發現。
             </p>
@@ -515,7 +538,7 @@ export function SurveillanceTruth() {
               classification="促轉會調查報告"
               title="第二章結論"
             >
-              <p className="font-narrative text-[0.9rem] leading-9 text-smoke">
+              <p className="font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-smoke">
                 {surveillanceConclusion.summary}
               </p>
 

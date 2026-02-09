@@ -16,7 +16,7 @@ export function ChapterHeader({
       >
         {label}
       </div>
-      <h2 className="mb-16 font-narrative text-[clamp(1.8rem,5vw,3rem)] font-black leading-snug text-paper-aged">
+      <h2 className="mb-16 font-narrative text-[clamp(1.8rem,5vw,3rem)] font-black leading-[1.4] tracking-[0.04em] text-paper-aged">
         {title}
       </h2>
     </header>
