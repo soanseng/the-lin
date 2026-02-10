@@ -108,7 +108,7 @@ export function Navigation({ items }: NavigationProps) {
       <button
         type="button"
         onClick={() => setIsMenuOpen((prev) => !prev)}
-        className="fixed top-3 left-3 z-[120] flex h-11 w-11 cursor-pointer items-center justify-center border border-smoke/20 bg-void/70 backdrop-blur-sm transition-all duration-300 hover:border-stone/40 hover:bg-void/90 sm:top-4 sm:left-4"
+        className="fixed top-3 left-3 z-[120] flex h-11 w-11 cursor-pointer items-center justify-center border border-stone/40 bg-void/70 backdrop-blur-sm transition-all duration-300 hover:border-stone-light/80 hover:bg-void/90 sm:top-4 sm:left-4"
         aria-label={isMenuOpen ? '關閉目錄' : '開啟目錄'}
         aria-expanded={isMenuOpen}
       >
@@ -133,7 +133,7 @@ export function Navigation({ items }: NavigationProps) {
 
       {/* ── Menu label (desktop, visible when menu closed) ── */}
       <div
-        className={`fixed top-[1.1rem] left-[3.75rem] z-[120] hidden font-document text-[0.55rem] tracking-[0.25em] text-stone/50 transition-opacity duration-300 sm:block ${
+        className={`fixed top-[1.1rem] left-[3.75rem] z-[120] hidden font-document text-[0.55rem] tracking-[0.25em] text-stone-light transition-opacity duration-300 sm:block ${
           isMenuOpen ? 'opacity-0' : 'opacity-100'
         }`}
         aria-hidden="true"
@@ -164,7 +164,7 @@ export function Navigation({ items }: NavigationProps) {
         >
           {/* Panel Header */}
           <div className="shrink-0 border-b border-smoke/15 px-8 pt-20 pb-5">
-            <div className="font-document text-[0.55rem] tracking-[0.4em] text-stone/60">
+            <div className="font-document text-[0.55rem] tracking-[0.4em] text-stone/80">
               TABLE OF CONTENTS
             </div>
             <h2 className="mt-1 font-heading text-base font-bold tracking-[0.12em] text-paper-aged">
@@ -179,7 +179,7 @@ export function Navigation({ items }: NavigationProps) {
                   style={{ width: `${progress * 100}%` }}
                 />
               </div>
-              <span className="shrink-0 font-document text-[0.55rem] tracking-wider text-stone/50">
+              <span className="shrink-0 font-document text-[0.55rem] tracking-wider text-stone/70">
                 {activeIndex >= 0 ? activeIndex + 1 : '—'} / {items.length}
               </span>
             </div>
@@ -208,7 +208,7 @@ export function Navigation({ items }: NavigationProps) {
                     className={`mt-px shrink-0 font-document text-[0.65rem] tracking-wider transition-colors duration-300 ${
                       isActive
                         ? 'text-blood'
-                        : 'text-stone/40 group-hover:text-stone/70'
+                        : 'text-stone-light/70 group-hover:text-stone-light'
                     }`}
                   >
                     {num}
@@ -229,8 +229,8 @@ export function Navigation({ items }: NavigationProps) {
                       <div
                         className={`mt-0.5 font-document text-[0.55rem] tracking-[0.08em] transition-colors duration-300 ${
                           isActive
-                            ? 'text-stone/70'
-                            : 'text-stone/35 group-hover:text-stone/55'
+                            ? 'text-stone-light'
+                            : 'text-stone/65 group-hover:text-stone-light/90'
                         }`}
                       >
                         {item.labelEn}
@@ -249,7 +249,7 @@ export function Navigation({ items }: NavigationProps) {
 
           {/* Panel Footer */}
           <div className="shrink-0 border-t border-smoke/15 px-8 py-5">
-            <div className="font-document text-[0.5rem] tracking-[0.2em] text-stone/30">
+            <div className="font-document text-[0.5rem] tracking-[0.2em] text-stone/55">
               林宅血案 — 1980.02.28
             </div>
           </div>

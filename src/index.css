@@ -11,8 +11,10 @@
   --color-ink:           #0D0A0A;
   --color-ash:           #1C1917;
   --color-smoke:         #292524;
-  --color-stone:         #44403C;
-  --color-dust:          #78716C;
+  --color-stone:         #7D7772;
+  --color-stone-light:   #8B8680;
+  --color-dust:          #9D9892;
+  --color-dust-light:    #ADA8A3;
 
   /* === Paper & Document === */
   --color-paper-aged:    #E8DCC4;
@@ -23,6 +25,7 @@
   --color-blood-dark:    #7F1D1D;
   --color-blood:         #991B1B;
   --color-seal-red:      #DC2626;
+  --color-blood-muted:   #B45454;
 
   /* === Incense & Warmth === */
   --color-incense:       #D4834F;

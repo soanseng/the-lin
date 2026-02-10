@@ -90,11 +90,17 @@ See `design-prototype.html` for the living visual reference. The core concept: h
 /* Core — near-black backgrounds */
 --void: #080808;  --ink: #0D0A0A;  --ash: #1C1917;  --smoke: #292524;
 
+/* Mid-tones (adjusted for WCAG AA compliance) */
+--stone: #7D7772;
+--stone-light: #8B8680;
+--dust: #9D9892;
+--dust-light: #ADA8A3;
+
 /* Paper & Document */
---paper-aged: #E8DCC4;  --paper-fresh: #F4F1E8;
+--paper-aged: #E8DCC4;  --paper-burnt: #D4C4A0;  --paper-fresh: #F4F1E8;
 
 /* Blood & Danger — used sparingly for emphasis */
---blood-dark: #7F1D1D;  --blood: #991B1B;  --seal-red: #DC2626;
+--blood-dark: #7F1D1D;  --blood: #991B1B;  --seal-red: #DC2626;  --blood-muted: #B45454;
 
 /* Incense & Warmth */
 --incense: #D4834F;  --amber: #B45309;
