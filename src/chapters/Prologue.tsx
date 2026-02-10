@@ -29,7 +29,7 @@ export function Prologue() {
             美麗島事件軍法審判首度公開審訊之日
           </p>
           <p
-            className="mt-4 font-document text-xs tracking-[0.2em] text-stone opacity-0"
+            className="mt-4 font-document text-sm tracking-[0.2em] text-stone opacity-0"
             style={{ animation: 'fadeUp 2s ease 3.5s forwards' }}
           >
             FEBRUARY 28, 1980
@@ -42,7 +42,7 @@ export function Prologue() {
           style={{ animation: 'fadeUp 1s ease 5s forwards' }}
         >
           <span className="mx-auto block h-10 w-px bg-gradient-to-b from-transparent to-dust" />
-          <small className="mt-2 block font-heading text-[0.6rem] tracking-[0.3em] text-stone">
+          <small className="mt-2 block font-heading text-[0.75rem] tracking-[0.3em] text-stone">
             SCROLL
           </small>
         </div>
@@ -60,7 +60,7 @@ export function Prologue() {
           <ScrollReveal delay={200}>
             <div className="my-12 flex items-center justify-center gap-4">
               <span className="h-px w-12 bg-stone" />
-              <span className="font-document text-[0.65rem] tracking-[0.4em] text-stone">
+              <span className="font-document text-[0.75rem] tracking-[0.4em] text-stone">
                 二二八
               </span>
               <span className="h-px w-12 bg-stone" />
@@ -87,7 +87,7 @@ export function Prologue() {
                 遭到軍警鎮壓。隨後，林義雄、黃信介、施明德等八人
                 以「涉嫌叛亂」之名被逮捕起訴。
               </p>
-              <p className="mt-2 font-document text-[0.7rem] tracking-widest text-stone">
+              <p className="mt-2 font-document text-[0.8rem] tracking-widest text-stone">
                 ——促轉會調查報告 附錄1
               </p>
             </div>
@@ -132,7 +132,7 @@ export function Prologue() {
           <ScrollReveal delay={600}>
             <div className="my-10 flex items-center gap-4">
               <span className="h-px flex-1 bg-stone/30" />
-              <span className="font-document text-[0.65rem] tracking-[0.4em] text-stone">
+              <span className="font-document text-[0.75rem] tracking-[0.4em] text-stone">
                 07:15
               </span>
               <span className="h-px flex-1 bg-stone/30" />
@@ -151,7 +151,7 @@ export function Prologue() {
           <ScrollReveal delay={900}>
             <div className="my-10 flex items-center gap-4">
               <span className="h-px flex-1 bg-stone/30" />
-              <span className="font-document text-[0.65rem] tracking-[0.4em] text-stone">
+              <span className="font-document text-[0.75rem] tracking-[0.4em] text-stone">
                 08:00
               </span>
               <span className="h-px flex-1 bg-stone/30" />
@@ -255,7 +255,7 @@ export function Prologue() {
           </ScrollReveal>
 
           <ScrollReveal delay={2500}>
-            <p className="mt-8 font-document text-[0.7rem] tracking-[0.3em] text-stone">
+            <p className="mt-8 font-document text-[0.8rem] tracking-[0.3em] text-stone">
               情治機關對林宅的電話監聽仍在持續記錄中。
             </p>
           </ScrollReveal>
@@ -337,7 +337,7 @@ export function Prologue() {
           <ScrollReveal delay={3600}>
             <div className="mt-20">
               <span className="mx-auto block h-12 w-px bg-gradient-to-b from-transparent to-blood-dark" />
-              <p className="mt-4 font-heading text-[0.6rem] tracking-[0.3em] text-stone">
+              <p className="mt-4 font-heading text-[0.75rem] tracking-[0.3em] text-stone">
                 繼續閱讀
               </p>
             </div>

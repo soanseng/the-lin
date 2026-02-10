@@ -14,7 +14,7 @@ export function DocumentPage({
   marginNote,
 }: DocumentPageProps) {
   return (
-    <div className="relative w-full max-w-[640px] bg-paper-fresh p-[clamp(1.5rem,6vw,4rem)] font-document text-[clamp(0.8rem,1.8vw,0.85rem)] leading-[2] text-ink shadow-[0_1px_3px_rgba(0,0,0,0.12),0_20px_60px_rgba(0,0,0,0.3)]">
+    <div className="relative w-full max-w-[640px] bg-paper-fresh p-[clamp(1.5rem,6vw,4rem)] font-document text-[clamp(0.9rem,2vw,1rem)] leading-[2] text-ink shadow-[0_1px_3px_rgba(0,0,0,0.12),0_20px_60px_rgba(0,0,0,0.3)]">
       {/* Aged paper overlay */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -34,7 +34,7 @@ export function DocumentPage({
       {/* Document header */}
       <div className="mb-8 border-b-2 border-ink pb-4 text-center">
         {classification && (
-          <div className="mb-2 text-[0.7rem] font-bold tracking-[0.3em] text-blood">
+          <div className="mb-2 text-[0.8rem] font-bold tracking-[0.3em] text-blood">
             {classification}
           </div>
         )}
@@ -44,13 +44,13 @@ export function DocumentPage({
       </div>
 
       {/* Document body */}
-      <div className="font-narrative text-[clamp(0.82rem,1.8vw,0.9rem)] leading-[2] tracking-wide text-smoke">
+      <div className="font-narrative text-[clamp(0.9rem,2vw,1rem)] leading-[2] tracking-wide text-smoke">
         {children}
       </div>
 
       {/* Margin note — hidden on small screens to avoid overlap */}
       {marginNote && (
-        <div className="absolute right-[-1rem] top-[30%] hidden text-[0.6rem] tracking-[0.15em] text-blood opacity-50 [writing-mode:vertical-rl] md:block">
+        <div className="absolute right-[-1rem] top-[30%] hidden text-[0.75rem] tracking-[0.15em] text-blood opacity-50 [writing-mode:vertical-rl] md:block">
           {marginNote}
         </div>
       )}

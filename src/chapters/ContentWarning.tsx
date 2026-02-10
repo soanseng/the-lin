@@ -9,7 +9,7 @@ export function ContentWarning({ onEnter }: ContentWarningProps) {
       className="flex min-h-screen flex-col items-center justify-center bg-void vignette-overlay px-4"
     >
       <div className="max-w-[540px] border border-stone p-8 sm:p-16">
-        <div className="mb-8 font-heading text-xs tracking-[0.3em] uppercase text-dust">
+        <div className="mb-8 font-heading text-sm tracking-[0.3em] uppercase text-dust">
           Content Warning
         </div>
         <h1 className="mb-8 font-heading text-[clamp(1.2rem,4vw,1.8rem)] font-black leading-relaxed text-paper-aged">
@@ -17,7 +17,7 @@ export function ContentWarning({ onEnter }: ContentWarningProps) {
           <br />
           及兇殺案件之相關內容
         </h1>
-        <p className="mb-16 font-literary text-[clamp(0.9rem,2vw,0.95rem)] leading-8 text-dust">
+        <p className="mb-16 font-literary text-[clamp(0.95rem,2vw,1.05rem)] leading-8 text-dust">
           以下內容取材自促進轉型正義委員會、最高檢察署
           <br className="hidden sm:block" />
           及監察院之公開調查報告，涉及1980年林宅血案

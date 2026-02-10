@@ -19,14 +19,14 @@ export function TimelineEvent({
       {/* Timeline dot */}
       <div className="absolute top-[0.65rem] left-0 h-[7px] w-[7px] -translate-x-[3px] rounded-full bg-stone transition-colors duration-400 group-hover:bg-blood group-hover:shadow-[0_0_10px_rgba(153,27,27,0.4)] group-[.revealed]:bg-blood group-[.revealed]:shadow-[0_0_10px_rgba(153,27,27,0.4)]" />
 
-      <div className="mb-1 font-document text-xs tracking-[0.15em] text-blood">{year}</div>
+      <div className="mb-1 font-document text-sm tracking-[0.15em] text-blood">{year}</div>
       <div
         className={`mb-2 font-heading text-[clamp(0.95rem,2.5vw,1.1rem)] font-bold leading-[1.5] ${highlight ? 'text-blood' : 'text-paper-aged'}`}
       >
         {title}
       </div>
       <div
-        className={`font-literary text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] ${highlight ? 'text-paper-aged' : 'text-dust'}`}
+        className={`font-literary text-[clamp(0.95rem,2vw,1.05rem)] leading-[2] ${highlight ? 'text-paper-aged' : 'text-dust'}`}
       >
         {description}
       </div>

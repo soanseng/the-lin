@@ -85,14 +85,14 @@ function ActionCard({
         className={`group relative border-l-2 bg-ink/60 p-6 transition-all duration-500 sm:p-8 ${borderColor}`}
       >
         <div
-          className={`mb-1 font-document text-[0.6rem] tracking-[0.25em] ${numberColor}`}
+          className={`mb-1 font-document text-[0.85rem] tracking-[0.25em] ${numberColor}`}
         >
           {number}
         </div>
         <h4 className="mb-1 font-heading text-[clamp(1.05rem,2.5vw,1.2rem)] font-bold leading-[1.5] text-paper-aged">
           {title}
         </h4>
-        <div className="mb-5 font-document text-[0.6rem] tracking-[0.1em] text-stone">
+        <div className="mb-5 font-document text-[0.85rem] tracking-[0.1em] text-stone">
           {titleEn}
         </div>
         {children}
@@ -121,13 +121,13 @@ function DocumentLink({
         <div className="mb-1 font-heading text-[0.95rem] font-bold text-paper-aged transition-colors group-hover:text-incense">
           {doc.title}
         </div>
-        <div className="mb-3 font-document text-[0.6rem] tracking-[0.1em] text-stone">
+        <div className="mb-3 font-document text-[0.85rem] tracking-[0.1em] text-stone">
           {doc.titleEn}
         </div>
-        <p className="font-narrative text-[0.8rem] leading-7 text-dust">
+        <p className="font-narrative text-[0.9rem] leading-7 text-dust">
           {doc.description}
         </p>
-        <div className="mt-3 font-document text-[0.6rem] tracking-[0.15em] text-incense/70 transition-colors group-hover:text-incense">
+        <div className="mt-3 font-document text-[0.85rem] tracking-[0.15em] text-incense/70 transition-colors group-hover:text-incense">
           PDF &rarr;
         </div>
       </a>
@@ -155,7 +155,7 @@ function ExternalLink({
         <div className="font-heading text-[0.9rem] font-bold text-paper-aged transition-colors group-hover:text-incense">
           {link.title}
         </div>
-        <p className="mt-1 font-narrative text-[0.78rem] leading-6 text-dust">
+        <p className="mt-1 font-narrative text-[0.88rem] leading-6 text-dust">
           {link.description}
         </p>
       </a>
@@ -180,7 +180,7 @@ function ShareLink({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-block min-h-[44px] border border-smoke/60 bg-ink/60 px-5 py-3 font-heading text-[0.75rem] tracking-[0.15em] text-dust transition-all duration-300 hover:border-incense/50 hover:text-incense active:text-incense"
+        className="inline-block min-h-[44px] border border-smoke/60 bg-ink/60 px-5 py-3 font-heading text-[0.85rem] tracking-[0.15em] text-dust transition-all duration-300 hover:border-incense/50 hover:text-incense active:text-incense"
       >
         {platform}
       </a>
@@ -206,7 +206,7 @@ export function CallToAction() {
         <ChapterHeader label="CHAPTER 07" title="行動呼籲" labelColor="text-incense" />
 
         <ScrollReveal>
-          <p className="max-w-[560px] text-center font-literary text-[clamp(0.85rem,2vw,1.05rem)] leading-8 tracking-wide text-dust">
+          <p className="max-w-[560px] text-center font-literary text-[clamp(0.95rem,2.5vw,1.1rem)] leading-8 tracking-wide text-dust">
             真相不會自己浮現。
             <br />
             它需要被閱讀、被記住、被傳遞。
@@ -228,7 +228,7 @@ export function CallToAction() {
       <Section id="cta-why" background="ink">
         <div className="w-full max-w-[640px]">
           <ScrollReveal>
-            <h3 className="mb-2 font-heading text-[0.65rem] uppercase tracking-[0.4em] text-stone">
+            <h3 className="mb-2 font-heading text-[0.85rem] uppercase tracking-[0.4em] text-stone">
               WHY THIS SITE EXISTS
             </h3>
             <h4 className="mb-4 font-narrative text-[clamp(1.3rem,4vw,2rem)] font-bold text-paper-aged">
@@ -237,14 +237,14 @@ export function CallToAction() {
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <p className="mb-6 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
+            <p className="mb-6 font-narrative text-[clamp(0.95rem,2vw,1.05rem)] leading-[2] text-dust">
               二〇二六年，一部未經家屬授權的電影聲稱改編自林宅血案。
               影片扭曲歷史，以聳動手法消費受害者家屬的傷痛，引發社會爭議。
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={400}>
-            <p className="mb-6 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
+            <p className="mb-6 font-narrative text-[clamp(0.95rem,2vw,1.05rem)] leading-[2] text-dust">
               然而，真正的調查報告——由促轉會、高檢署、監察院三個機關歷經數十年調查的成果——
               卻鮮少有人完整閱讀。
             </p>
@@ -263,7 +263,7 @@ export function CallToAction() {
           </ScrollReveal>
 
           <ScrollReveal delay={800}>
-            <p className="mt-8 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
+            <p className="mt-8 font-narrative text-[clamp(0.95rem,2vw,1.05rem)] leading-[2] text-dust">
               我們希望這些資料不再只是塵封的 PDF，
               而能成為每一個關心台灣歷史的人都能閱讀、理解、傳遞的故事。
             </p>
@@ -277,7 +277,7 @@ export function CallToAction() {
       <Section id="cta-actions" background="ash">
         <div className="w-full max-w-[780px]">
           <ScrollReveal>
-            <h3 className="mb-2 font-heading text-[0.65rem] uppercase tracking-[0.4em] text-incense">
+            <h3 className="mb-2 font-heading text-[0.85rem] uppercase tracking-[0.4em] text-incense">
               TAKE ACTION
             </h3>
             <h4 className="mb-12 font-narrative text-[clamp(1.3rem,4vw,2rem)] font-bold text-paper-aged">
@@ -294,7 +294,7 @@ export function CallToAction() {
               accent="incense"
               delay={0}
             >
-              <p className="mb-5 font-narrative text-[0.82rem] leading-7 text-dust">
+              <p className="mb-5 font-narrative text-[0.9rem] leading-7 text-dust">
                 直接閱讀政府公開的調查報告，了解四十年調查的全貌。
               </p>
               <div className="space-y-3">
@@ -312,7 +312,7 @@ export function CallToAction() {
               accent="paper-aged"
               delay={150}
             >
-              <p className="mb-5 font-narrative text-[0.82rem] leading-7 text-dust">
+              <p className="mb-5 font-narrative text-[0.9rem] leading-7 text-dust">
                 林宅血案不是孤立事件。了解台灣轉型正義的推動，
                 認識白色恐怖時期的系統性國家暴力。
               </p>
@@ -331,7 +331,7 @@ export function CallToAction() {
               accent="incense"
               delay={300}
             >
-              <p className="mb-5 font-narrative text-[0.82rem] leading-7 text-dust">
+              <p className="mb-5 font-narrative text-[0.9rem] leading-7 text-dust">
                 這是一個開源專案。你可以在下方留言板分享讀後感想，
                 也歡迎提交 Pull Request 貢獻研究筆記或功能改善。
               </p>
@@ -342,10 +342,10 @@ export function CallToAction() {
                 rel="noopener noreferrer"
                 className="group inline-flex min-h-[44px] items-center gap-3 border border-smoke/60 bg-void/40 px-5 py-3 transition-all duration-300 hover:border-incense/50 hover:bg-void/60"
               >
-                <span className="font-document text-[0.7rem] tracking-[0.1em] text-dust transition-colors group-hover:text-incense">
+                <span className="font-document text-[0.9rem] tracking-[0.1em] text-dust transition-colors group-hover:text-incense">
                   GitHub
                 </span>
-                <span className="font-heading text-[0.75rem] text-paper-aged transition-colors group-hover:text-incense">
+                <span className="font-heading text-[0.85rem] text-paper-aged transition-colors group-hover:text-incense">
                   soanseng/the-lin
                 </span>
                 <span className="text-stone transition-colors group-hover:text-incense">
@@ -354,15 +354,15 @@ export function CallToAction() {
               </a>
 
               <div className="mt-5 space-y-2">
-                <div className="flex items-start gap-2 font-narrative text-[0.78rem] leading-6 text-stone">
+                <div className="flex items-start gap-2 font-narrative text-[0.88rem] leading-6 text-stone">
                   <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-incense/60" />
                   PRs welcome: 讀後感想、研究筆記
                 </div>
-                <div className="flex items-start gap-2 font-narrative text-[0.78rem] leading-6 text-stone">
+                <div className="flex items-start gap-2 font-narrative text-[0.88rem] leading-6 text-stone">
                   <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-incense/60" />
                   Creative writing &amp; novel adaptation ideas
                 </div>
-                <div className="flex items-start gap-2 font-narrative text-[0.78rem] leading-6 text-stone">
+                <div className="flex items-start gap-2 font-narrative text-[0.88rem] leading-6 text-stone">
                   <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-incense/60" />
                   Issue 回報與功能建議
                 </div>
@@ -377,7 +377,7 @@ export function CallToAction() {
               accent="blood"
               delay={450}
             >
-              <p className="mb-5 font-narrative text-[0.82rem] leading-7 text-dust">
+              <p className="mb-5 font-narrative text-[0.9rem] leading-7 text-dust">
                 讓更多人知道這段歷史。分享這個網站，讓真相繼續傳遞。
               </p>
               <div className="flex flex-wrap gap-3">
@@ -393,7 +393,7 @@ export function CallToAction() {
                 />
               </div>
               <ScrollReveal delay={200}>
-                <p className="mt-4 font-document text-[0.6rem] tracking-[0.1em] text-stone">
+                <p className="mt-4 font-document text-[0.85rem] tracking-[0.1em] text-stone">
                   {siteUrl}
                 </p>
               </ScrollReveal>
@@ -417,7 +417,7 @@ export function CallToAction() {
       <Section id="cta-credits" background="ink">
         <div className="w-full max-w-[640px]">
           <ScrollReveal>
-            <h3 className="mb-2 font-heading text-[0.65rem] uppercase tracking-[0.4em] text-stone">
+            <h3 className="mb-2 font-heading text-[0.85rem] uppercase tracking-[0.4em] text-stone">
               SOURCES &amp; CREDITS
             </h3>
             <h4 className="mb-8 font-narrative text-[clamp(1.3rem,4vw,2rem)] font-bold text-paper-aged">
@@ -429,20 +429,20 @@ export function CallToAction() {
             <div className="space-y-6">
               {/* Source documents */}
               <div className="border-l border-stone/30 pl-6">
-                <h5 className="mb-3 font-heading text-[0.75rem] uppercase tracking-[0.2em] text-incense">
+                <h5 className="mb-3 font-heading text-[0.85rem] uppercase tracking-[0.2em] text-incense">
                   調查報告
                 </h5>
                 <ul className="space-y-3">
-                  <li className="font-narrative text-[0.82rem] leading-7 text-dust">
+                  <li className="font-narrative text-[0.9rem] leading-7 text-dust">
                     <span className="text-paper-aged">促進轉型正義委員會</span>
                     <span className="text-stone">（已於2022年解散）</span>
                     ——〈林義雄宅血案調查報告〉
                   </li>
-                  <li className="font-narrative text-[0.82rem] leading-7 text-dust">
+                  <li className="font-narrative text-[0.9rem] leading-7 text-dust">
                     <span className="text-paper-aged">臺灣高等檢察署</span>
                     ——〈林宅血案、陳文成命案重啟調查偵查報告〉
                   </li>
-                  <li className="font-narrative text-[0.82rem] leading-7 text-dust">
+                  <li className="font-narrative text-[0.9rem] leading-7 text-dust">
                     <span className="text-paper-aged">監察院</span>
                     ——糾正案文（監112內正0004）
                   </li>
@@ -451,14 +451,14 @@ export function CallToAction() {
 
               {/* Project */}
               <div className="border-l border-stone/30 pl-6">
-                <h5 className="mb-3 font-heading text-[0.75rem] uppercase tracking-[0.2em] text-incense">
+                <h5 className="mb-3 font-heading text-[0.85rem] uppercase tracking-[0.2em] text-incense">
                   專案資訊
                 </h5>
-                <p className="font-narrative text-[0.82rem] leading-7 text-dust">
+                <p className="font-narrative text-[0.9rem] leading-7 text-dust">
                   本網站所有敘事內容皆來自上述三份公開政府文件。
                   未添加虛構情節，未進行未經佐證之推論。
                 </p>
-                <p className="mt-3 font-narrative text-[0.82rem] leading-7 text-dust">
+                <p className="mt-3 font-narrative text-[0.9rem] leading-7 text-dust">
                   本專案為開放原始碼，以{' '}
                   <a
                     href="https://github.com/soanseng/the-lin"
@@ -474,10 +474,10 @@ export function CallToAction() {
 
               {/* Design note */}
               <div className="border-l border-stone/30 pl-6">
-                <h5 className="mb-3 font-heading text-[0.75rem] uppercase tracking-[0.2em] text-incense">
+                <h5 className="mb-3 font-heading text-[0.85rem] uppercase tracking-[0.2em] text-incense">
                   設計說明
                 </h5>
-                <p className="font-narrative text-[0.82rem] leading-7 text-dust">
+                <p className="font-narrative text-[0.9rem] leading-7 text-dust">
                   本站設計語言為「檔案恐怖」（Bureaucratic Horror）——
                   恐怖不來自暴力畫面，而來自體制的冷漠與掩蓋。
                   視覺靈感取自公文檔案、解密文件與白色恐怖時期的影像紀錄。
@@ -537,10 +537,10 @@ export function CallToAction() {
 
           <ScrollReveal delay={1800}>
             <footer className="mt-8">
-              <p className="font-document text-[0.6rem] tracking-[0.3em] text-stone">
+              <p className="font-document text-[0.85rem] tracking-[0.3em] text-stone">
                 FEBRUARY 28, 1980 &mdash; NEVER FORGET
               </p>
-              <p className="mt-4 font-heading text-[0.6rem] tracking-[0.2em] text-stone/60">
+              <p className="mt-4 font-heading text-[0.85rem] tracking-[0.2em] text-stone/60">
                 soanseng/the-lin &middot; open source
               </p>
             </footer>

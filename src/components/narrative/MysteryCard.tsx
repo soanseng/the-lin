@@ -30,14 +30,26 @@ export function MysteryCard({ number, question, detail }: MysteryCardProps) {
         }`}
       />
 
-      <div className="mb-2 font-document text-[0.7rem] tracking-[0.2em] text-blood">
-        {number}
-      </div>
-      <div className="mb-4 font-heading text-[clamp(1.1rem,3vw,1.4rem)] font-bold leading-relaxed text-paper-aged">
-        {question}
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex-1">
+          <div className="mb-2 font-document text-[0.8rem] tracking-[0.2em] text-blood">
+            {number}
+          </div>
+          <div className="mb-4 font-heading text-[clamp(1.1rem,3vw,1.4rem)] font-bold leading-relaxed text-paper-aged">
+            {question}
+          </div>
+        </div>
+        <span
+          className={`mt-1 shrink-0 text-[0.8rem] text-dust transition-transform duration-500 ${
+            expanded ? 'rotate-180' : ''
+          }`}
+          aria-hidden="true"
+        >
+          ▼
+        </span>
       </div>
       <div
-        className={`overflow-hidden font-literary text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust transition-[max-height] duration-600 ${
+        className={`overflow-hidden font-literary text-[clamp(0.95rem,2vw,1.05rem)] leading-[2] text-dust transition-[max-height] duration-600 ${
           expanded ? 'max-h-[300px]' : 'max-h-0'
         }`}
       >

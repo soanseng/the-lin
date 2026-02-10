@@ -12,7 +12,7 @@ export function ChapterHeader({
   return (
     <header>
       <div
-        className={`mb-2 font-heading text-[0.65rem] uppercase tracking-[0.4em] ${labelColor}`}
+        className={`mb-2 font-heading text-[0.75rem] uppercase tracking-[0.4em] ${labelColor}`}
       >
         {label}
       </div>
