@@ -18,15 +18,15 @@ const sourceDocuments = [
     title: '高檢署偵查報告',
     titleEn: 'Supreme Prosecutors Office Report',
     description:
-      '臺灣高等檢察署重啟調查偵查報告，涵蓋林宅血案與陳文成命案。',
-    filename: '林宅血案、陳文成命案重啟調查偵查報告.pdf',
+      '98年（2009）馬英九總統指示重啟調查，高檢署主導聯合專案小組偵查報告，涵蓋林宅血案與陳文成命案。',
+    filename: 'https://www.tph.moj.gov.tw/media/72850/9101910301925.pdf?mediaDL=true',
   },
   {
     title: '監察院糾正案文',
     titleEn: 'Control Yuan Corrective Action',
     description:
-      '監察院針對情治機關阻撓偵查、銷毀證據之糾正案文。',
-    filename: '監112內正0004.pdf',
+      '監察院針對情治機關阻撓偵查、銷毀證據之糾正案文（112內正0004）。',
+    filename: 'https://www.cy.gov.tw/CyBsBoxContent2.aspx?n=718&s=28221',
   },
 ]
 
