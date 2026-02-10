@@ -15,7 +15,7 @@ export function Redacted({ children }: RedactedProps) {
       className={`inline cursor-pointer select-none rounded-sm px-[0.3em] py-[0.15em] transition-all duration-700 ${
         revealed
           ? 'bg-blood/15 text-blood underline decoration-wavy underline-offset-4'
-          : 'bg-ink text-transparent'
+          : 'redacted-bar border border-smoke/50 bg-ash text-transparent hover:border-blood-dark/60 hover:bg-smoke/80'
       }`}
       style={{ minHeight: '44px', minWidth: '44px', touchAction: 'manipulation' }}
       onClick={() => setRevealed((prev) => !prev)}

@@ -140,7 +140,7 @@ export function HistoricalContext() {
                 <div className="mb-1 font-heading text-sm font-bold text-paper-aged">
                   {figure.name}
                 </div>
-                <p className="font-narrative text-xs leading-relaxed text-dust">
+                <p className="font-narrative text-sm leading-relaxed text-dust">
                   {figure.description}
                 </p>
               </div>
@@ -179,13 +179,13 @@ export function HistoricalContext() {
 
         <ScrollReveal className="mb-20" delay={200}>
           <div className="rounded border border-smoke bg-void/60 p-5">
-            <div className="mb-2 font-document text-xs tracking-widest text-stone">
+            <div className="mb-2 font-document text-sm tracking-widest text-stone">
               獵明專案第五次協調會議紀錄 68年12月20日
             </div>
             <p className="font-document text-sm leading-loose text-paper-burnt">
               「竊聽工作請積極進行，並以張俊宏、姚嘉文、林義雄等三位住宅為優先。」
             </p>
-            <div className="mt-3 font-document text-[0.65rem] text-stone">
+            <div className="mt-3 font-document text-[0.75rem] text-stone">
               來源：促轉會報告 附錄1 p.92
             </div>
           </div>
@@ -264,7 +264,7 @@ export function HistoricalContext() {
           <p className="mt-4 text-center font-narrative text-[clamp(1rem,2.5vw,1.2rem)] leading-relaxed text-dust">
             長女林奐均身中數刀，重傷存活。
           </p>
-          <p className="mt-8 text-center font-document text-xs tracking-[0.3em] text-stone">
+          <p className="mt-8 text-center font-document text-sm tracking-[0.3em] text-stone">
             至今，兇手不明。
           </p>
         </ScrollReveal>

@@ -12,13 +12,13 @@ export function Guestbook() {
     <div className="mx-auto w-full max-w-[720px]">
       {/* Header */}
       <div className="mb-8">
-        <div className="mb-2 font-document text-[0.6rem] uppercase tracking-[0.4em] text-incense">
+        <div className="mb-2 font-document text-[0.75rem] uppercase tracking-[0.4em] text-incense">
           GUESTBOOK
         </div>
         <h3 className="mb-3 font-narrative text-[clamp(1.3rem,4vw,2rem)] font-bold text-paper-aged">
           留言板
         </h3>
-        <p className="font-narrative text-[clamp(0.82rem,2vw,0.88rem)] leading-[2] text-dust">
+        <p className="font-narrative text-[clamp(0.9rem,2vw,1rem)] leading-[2] text-dust">
           讀完之後有什麼想法？無論是感想、疑問、補充資料，或只是想說一句話——
           都歡迎留言。你的每一則留言都會保存在本專案的{' '}
           <a
@@ -31,7 +31,7 @@ export function Guestbook() {
           </a>{' '}
           中。
         </p>
-        <p className="mt-2 font-document text-[0.65rem] leading-6 text-stone/60">
+        <p className="mt-2 font-document text-[0.75rem] leading-6 text-stone/60">
           需要 GitHub 帳號登入。沒有帳號？也可以直接到{' '}
           <a
             href="https://github.com/soanseng/the-lin/discussions/new?category=general"

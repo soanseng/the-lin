@@ -166,13 +166,13 @@ export function TimelinePuzzle() {
       <div className="border border-smoke/60 bg-ash/60 p-[clamp(1.5rem,5vw,2.5rem)]">
         {/* Header */}
         <div className="mb-6 border-b border-smoke pb-4">
-          <div className="font-document text-[0.6rem] tracking-[0.2em] text-stone">
+          <div className="font-document text-[0.95rem] tracking-[0.2em] text-stone">
             INTERACTIVE — 互動體驗
           </div>
           <h3 className="mt-1 font-heading text-[clamp(1.1rem,3vw,1.4rem)] font-black text-paper-aged">
             時間線拼圖
           </h3>
-          <p className="mt-2 font-narrative text-[0.8rem] leading-7 text-dust">
+          <p className="mt-2 font-narrative text-[0.9rem] leading-7 text-dust">
             將民國69年2月28日的事件按時間順序排列。點選兩張卡片以交換位置。
           </p>
         </div>
@@ -180,7 +180,7 @@ export function TimelinePuzzle() {
         {/* Progress */}
         {hasStarted && !isComplete && (
           <div className="mb-4 text-right">
-            <span className="font-document text-[0.7rem] tracking-[0.1em] text-stone">
+            <span className="font-document text-[0.9rem] tracking-[0.1em] text-stone">
               {correctCount}/{correctOrder.length} 正確位置
             </span>
           </div>
@@ -222,7 +222,7 @@ export function TimelinePuzzle() {
                   }`}
                 >
                   {/* Position number */}
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-smoke/60 font-document text-[0.7rem] text-stone">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-smoke/60 font-document text-[0.9rem] text-stone">
                     {index + 1}
                   </div>
 
@@ -230,18 +230,18 @@ export function TimelinePuzzle() {
                   <div className="flex-1">
                     {/* Time — hidden until correct or puzzle complete */}
                     {(isCorrect || isComplete) ? (
-                      <div className="mb-1 font-document text-[0.75rem] font-bold tracking-[0.1em] text-blood">
+                      <div className="mb-1 font-document text-[0.95rem] font-bold tracking-[0.1em] text-blood">
                         {event.time}
                       </div>
                     ) : (
-                      <div className="mb-1 font-document text-[0.65rem] tracking-[0.15em] text-stone">
+                      <div className="mb-1 font-document text-[0.95rem] tracking-[0.15em] text-stone">
                         ??:??
                       </div>
                     )}
 
                     {/* Description */}
                     <p
-                      className={`font-narrative text-[0.8rem] leading-7 ${
+                      className={`font-narrative text-[0.9rem] leading-7 ${
                         isComplete
                           ? 'text-paper-aged/90'
                           : isSelected
@@ -255,7 +255,7 @@ export function TimelinePuzzle() {
 
                   {/* Selection indicator */}
                   {isSelected && !isComplete && (
-                    <div className="mt-1 shrink-0 font-document text-[0.6rem] text-incense">
+                    <div className="mt-1 shrink-0 font-document text-[0.95rem] text-incense">
                       已選
                     </div>
                   )}
@@ -271,20 +271,20 @@ export function TimelinePuzzle() {
             <p className="font-heading text-[0.9rem] font-bold tracking-wide text-blood">
               時間線完成
             </p>
-            <p className="mt-4 font-literary text-[0.85rem] leading-8 text-dust">
+            <p className="mt-4 font-literary text-[0.95rem] leading-8 text-dust">
               從清晨的日常到下午的發現——短短數小時之間，
               一個家庭被永遠改變。兇手在嚴密監控下從容行兇逾80分鐘，全身而退。
               四十餘年後，這條時間線上的每一刻都留有情治機關的監聽紀錄——
               唯獨真相，至今仍被掩埋。
             </p>
-            <p className="mt-4 font-document text-[0.6rem] tracking-[0.15em] text-stone">
+            <p className="mt-4 font-document text-[0.95rem] tracking-[0.15em] text-stone">
               資料來源：促轉會調查報告 附錄1 pp.93-95
             </p>
 
             {/* Reset button */}
             <button
               type="button"
-              className="mt-6 min-h-[44px] border border-smoke/40 px-6 py-2 font-document text-[0.7rem] tracking-wide text-stone transition-colors duration-300 hover:border-stone hover:text-dust active:text-dust"
+              className="mt-6 min-h-[44px] border border-smoke/40 px-6 py-2 font-document text-[0.9rem] tracking-wide text-stone transition-colors duration-300 hover:border-stone hover:text-dust active:text-dust"
               onClick={() => {
                 setEvents(shuffleArray(correctOrder))
                 setSelectedIndex(null)

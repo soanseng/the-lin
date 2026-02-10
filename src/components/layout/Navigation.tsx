@@ -133,7 +133,7 @@ export function Navigation({ items }: NavigationProps) {
 
       {/* ── Menu label (desktop, visible when menu closed) ── */}
       <div
-        className={`fixed top-[1.1rem] left-[3.75rem] z-[120] hidden font-document text-[0.55rem] tracking-[0.25em] text-stone-light transition-opacity duration-300 sm:block ${
+        className={`fixed top-[1.1rem] left-[3.75rem] z-[120] hidden font-document text-[0.65rem] tracking-[0.25em] text-stone-light transition-opacity duration-300 sm:block ${
           isMenuOpen ? 'opacity-0' : 'opacity-100'
         }`}
         aria-hidden="true"
@@ -164,7 +164,7 @@ export function Navigation({ items }: NavigationProps) {
         >
           {/* Panel Header */}
           <div className="shrink-0 border-b border-smoke/15 px-8 pt-20 pb-5">
-            <div className="font-document text-[0.55rem] tracking-[0.4em] text-stone/80">
+            <div className="font-document text-[0.65rem] tracking-[0.4em] text-stone/80">
               TABLE OF CONTENTS
             </div>
             <h2 className="mt-1 font-heading text-base font-bold tracking-[0.12em] text-paper-aged">
@@ -179,7 +179,7 @@ export function Navigation({ items }: NavigationProps) {
                   style={{ width: `${progress * 100}%` }}
                 />
               </div>
-              <span className="shrink-0 font-document text-[0.55rem] tracking-wider text-stone/70">
+              <span className="shrink-0 font-document text-[0.65rem] tracking-wider text-stone/70">
                 {activeIndex >= 0 ? activeIndex + 1 : '—'} / {items.length}
               </span>
             </div>
@@ -205,7 +205,7 @@ export function Navigation({ items }: NavigationProps) {
                 >
                   {/* Chapter number */}
                   <span
-                    className={`mt-px shrink-0 font-document text-[0.65rem] tracking-wider transition-colors duration-300 ${
+                    className={`mt-px shrink-0 font-document text-[0.75rem] tracking-wider transition-colors duration-300 ${
                       isActive
                         ? 'text-blood'
                         : 'text-stone-light/70 group-hover:text-stone-light'
@@ -227,7 +227,7 @@ export function Navigation({ items }: NavigationProps) {
                     </div>
                     {item.labelEn && (
                       <div
-                        className={`mt-0.5 font-document text-[0.55rem] tracking-[0.08em] transition-colors duration-300 ${
+                        className={`mt-0.5 font-document text-[0.65rem] tracking-[0.08em] transition-colors duration-300 ${
                           isActive
                             ? 'text-stone-light'
                             : 'text-stone/65 group-hover:text-stone-light/90'
@@ -249,7 +249,7 @@ export function Navigation({ items }: NavigationProps) {
 
           {/* Panel Footer */}
           <div className="shrink-0 border-t border-smoke/15 px-8 py-5">
-            <div className="font-document text-[0.5rem] tracking-[0.2em] text-stone/55">
+            <div className="font-document text-[0.6rem] tracking-[0.2em] text-stone/55">
               林宅血案 — 1980.02.28
             </div>
           </div>
@@ -277,7 +277,7 @@ export function Navigation({ items }: NavigationProps) {
                   : 'bg-stone'
               }`}
             />
-            <span className="pointer-events-none absolute top-1/2 right-full mr-2 hidden -translate-y-1/2 whitespace-nowrap font-heading text-[0.65rem] tracking-[0.1em] text-dust group-hover:block">
+            <span className="pointer-events-none absolute top-1/2 right-full mr-2 hidden -translate-y-1/2 whitespace-nowrap font-heading text-[0.75rem] tracking-[0.1em] text-dust group-hover:block">
               {item.label}
             </span>
           </button>

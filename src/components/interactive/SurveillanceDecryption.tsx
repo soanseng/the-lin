@@ -75,7 +75,7 @@ function RedactedBlock({
   return (
     <div className="border-b border-smoke/40 py-5">
       {/* Document-style label */}
-      <div className="mb-2 font-document text-[0.65rem] tracking-[0.1em] text-incense">
+      <div className="mb-2 font-document text-[0.95rem] tracking-[0.1em] text-incense">
         {item.label}
       </div>
 
@@ -84,10 +84,10 @@ function RedactedBlock({
         role="button"
         tabIndex={0}
         aria-label={isRevealed ? item.secret : '點擊解密此段機密文字'}
-        className={`relative min-h-[44px] select-none rounded-sm px-4 py-3 ${
+        className={`relative min-h-[44px] select-none rounded-sm px-4 py-3 transition-colors duration-300 ${
           isRevealed
             ? 'bg-void/90'
-            : 'cursor-pointer bg-ink hover:bg-ink/80'
+            : 'cursor-pointer border border-smoke/30 bg-ink hover:border-blood-dark/50 hover:bg-ink/70'
         }`}
         style={{ touchAction: 'manipulation' }}
         onClick={isRevealed ? undefined : onReveal}
@@ -99,13 +99,13 @@ function RedactedBlock({
         }}
       >
         {isRevealed ? (
-          <p className="font-literary text-[0.85rem] leading-8 text-paper-burnt">
+          <p className="font-literary text-[0.95rem] leading-8 text-paper-burnt">
             {item.secret}
           </p>
         ) : (
           <div className="flex items-center gap-3">
             <div className="h-3 flex-1 rounded-sm bg-void" />
-            <span className="shrink-0 font-document text-[0.6rem] tracking-[0.15em] text-stone">
+            <span className="decryption-hint shrink-0 font-document text-[0.95rem] tracking-[0.15em] text-dust">
               [ 點擊解密 ]
             </span>
           </div>
@@ -139,7 +139,7 @@ export function SurveillanceDecryption() {
       className="mx-auto w-full max-w-[640px]"
     >
       {/* Document wrapper — aged paper aesthetic */}
-      <div className="relative bg-paper-fresh p-[clamp(1.5rem,5vw,3rem)] font-document text-[0.85rem] leading-8 text-ink shadow-[0_1px_3px_rgba(0,0,0,0.12),0_20px_60px_rgba(0,0,0,0.3)]">
+      <div className="relative bg-paper-fresh p-[clamp(1.5rem,5vw,3rem)] font-document text-[0.95rem] leading-8 text-ink shadow-[0_1px_3px_rgba(0,0,0,0.12),0_20px_60px_rgba(0,0,0,0.3)]">
         {/* Aged paper overlay */}
         <div
           className="pointer-events-none absolute inset-0"
@@ -156,20 +156,20 @@ export function SurveillanceDecryption() {
 
         {/* Document header */}
         <div className="relative z-[2] mb-6 border-b-2 border-ink pb-4 text-center">
-          <div className="mb-2 text-[0.7rem] font-bold tracking-[0.3em] text-blood">
+          <div className="mb-2 text-[0.8rem] font-bold tracking-[0.3em] text-blood">
             CLASSIFIED — 極機密
           </div>
           <div className="font-heading text-[1.1rem] font-black tracking-[0.1em] text-ink">
             林宅監聽紀錄解密檔案
           </div>
-          <div className="mt-2 text-[0.6rem] tracking-[0.15em] text-smoke">
+          <div className="mt-2 text-[0.95rem] tracking-[0.15em] text-smoke">
             TRANSITIONAL JUSTICE COMMISSION — DECLASSIFIED
           </div>
         </div>
 
         {/* Instructions */}
         <div className="relative z-[2] mb-6 border border-smoke/30 bg-void/5 px-4 py-3 text-center">
-          <p className="font-heading text-[0.75rem] tracking-wide text-smoke">
+          <p className="font-heading text-[0.95rem] tracking-wide text-smoke">
             點擊黑色遮蔽區域以解密機密文件內容
           </p>
         </div>
@@ -177,7 +177,7 @@ export function SurveillanceDecryption() {
         {/* Progress counter */}
         <div className="relative z-[2] mb-6 text-right">
           <span
-            className={`font-document text-[0.7rem] tracking-[0.15em] transition-colors duration-500 ${
+            className={`font-document text-[0.8rem] tracking-[0.15em] transition-colors duration-500 ${
               allRevealed ? 'text-seal-red' : 'text-stone'
             }`}
           >
@@ -203,12 +203,12 @@ export function SurveillanceDecryption() {
             <p className="font-heading text-[0.9rem] font-bold tracking-wide text-blood">
               全部解密完成
             </p>
-            <p className="mt-3 font-literary text-[0.85rem] leading-8 text-smoke">
+            <p className="mt-3 font-literary text-[0.95rem] leading-8 text-smoke">
               以上六份文件證實：情治機關在案發前即對林宅進行系統性監聽，
               案發當日持續監控，案發後銷毀關鍵錄音並阻撓偵查——
               他們知道一切，卻選擇了沉默與掩蓋。
             </p>
-            <div className="mt-4 font-document text-[0.6rem] tracking-[0.15em] text-stone">
+            <div className="mt-4 font-document text-[0.95rem] tracking-[0.15em] text-stone">
               資料來源：促轉會調查報告、監察院糾正案文
             </div>
           </div>

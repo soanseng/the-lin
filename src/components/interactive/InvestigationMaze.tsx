@@ -141,13 +141,13 @@ export function InvestigationMaze() {
       <div className="border border-smoke/60 bg-ash/60 p-[clamp(1.5rem,5vw,2.5rem)]">
         {/* Header */}
         <div className="mb-6 border-b border-smoke pb-4">
-          <div className="font-document text-[0.6rem] tracking-[0.2em] text-stone">
+          <div className="font-document text-[0.95rem] tracking-[0.2em] text-stone">
             INTERACTIVE — 互動體驗
           </div>
           <h3 className="mt-1 font-heading text-[clamp(1.1rem,3vw,1.4rem)] font-black text-paper-aged">
             調查迷宮
           </h3>
-          <p className="mt-2 font-narrative text-[0.8rem] leading-7 text-dust">
+          <p className="mt-2 font-narrative text-[0.9rem] leading-7 text-dust">
             扮演撥雲專案偵查員，追查林宅血案真相。每一條路，都通往同一個結局。
           </p>
         </div>
@@ -159,12 +159,12 @@ export function InvestigationMaze() {
               民國69年2月28日。林義雄之母遇害身亡、雙胞胎女兒遇害身亡、長女身中六刀重傷。
               你是負責偵辦此案的刑事局偵查員。
             </p>
-            <p className="font-literary text-[0.85rem] leading-8 text-stone">
+            <p className="font-literary text-[0.95rem] leading-8 text-stone">
               你相信只要循線追查，就能找到真相。
             </p>
             <button
               type="button"
-              className="mt-4 min-h-[44px] border border-blood-dark/60 bg-blood-dark/10 px-8 py-3 font-heading text-[0.85rem] tracking-wide text-blood transition-colors duration-300 hover:border-blood hover:bg-blood-dark/20 active:bg-blood-dark/20"
+              className="mt-4 min-h-[44px] border border-blood-dark/60 bg-blood-dark/10 px-8 py-3 font-heading text-[0.95rem] tracking-wide text-blood transition-colors duration-300 hover:border-blood hover:bg-blood-dark/20 active:bg-blood-dark/20"
               onClick={handleStart}
             >
               開始偵查
@@ -176,12 +176,12 @@ export function InvestigationMaze() {
         {state.phase === 'choosing' && (
           <div className="space-y-6">
             {/* Round indicator */}
-            <div className="font-document text-[0.6rem] tracking-[0.15em] text-stone">
+            <div className="font-document text-[0.95rem] tracking-[0.15em] text-stone">
               偵查階段 {state.roundIndex + 1} / {mazeRounds.length}
             </div>
 
             {/* Context */}
-            <p className="font-narrative text-[0.8rem] leading-7 text-dust">
+            <p className="font-narrative text-[0.9rem] leading-7 text-dust">
               {mazeRounds[state.roundIndex].context}
             </p>
 
@@ -199,10 +199,10 @@ export function InvestigationMaze() {
                   className="group block min-h-[44px] w-full border border-smoke/60 bg-ink/60 px-5 py-4 text-left transition-all duration-300 hover:border-blood-dark/60 hover:bg-ink active:bg-ink"
                   onClick={() => handleChoice(state.roundIndex, i)}
                 >
-                  <span className="font-document text-[0.6rem] tracking-[0.1em] text-stone">
+                  <span className="font-document text-[0.95rem] tracking-[0.1em] text-stone">
                     選項 {String.fromCharCode(65 + i)}
                   </span>
-                  <p className="mt-1 font-narrative text-[0.85rem] leading-7 text-paper-aged transition-colors duration-300 group-hover:text-paper-fresh">
+                  <p className="mt-1 font-narrative text-[0.95rem] leading-7 text-paper-aged transition-colors duration-300 group-hover:text-paper-fresh">
                     {choice.label}
                   </p>
                 </button>
@@ -220,13 +220,13 @@ export function InvestigationMaze() {
                 受阻
               </div>
               <div className="relative z-[1]">
-                <p className="font-literary text-[0.85rem] leading-8 text-paper-aged/90">
+                <p className="font-literary text-[0.95rem] leading-8 text-paper-aged/90">
                   {
                     mazeRounds[state.roundIndex].choices[state.choiceIndex]
                       .result
                   }
                 </p>
-                <div className="mt-4 border-t border-smoke/40 pt-2 font-document text-[0.6rem] tracking-[0.05em] text-stone">
+                <div className="mt-4 border-t border-smoke/40 pt-2 font-document text-[0.95rem] tracking-[0.05em] text-stone">
                   {
                     mazeRounds[state.roundIndex].choices[state.choiceIndex]
                       .source
@@ -239,7 +239,7 @@ export function InvestigationMaze() {
             <div className="text-center">
               <button
                 type="button"
-                className="min-h-[44px] border border-smoke/60 bg-ink/60 px-8 py-3 font-heading text-[0.8rem] tracking-wide text-dust transition-colors duration-300 hover:border-stone hover:text-paper-aged active:text-paper-aged"
+                className="min-h-[44px] border border-smoke/60 bg-ink/60 px-8 py-3 font-heading text-[0.9rem] tracking-wide text-dust transition-colors duration-300 hover:border-stone hover:text-paper-aged active:text-paper-aged"
                 onClick={handleNext}
               >
                 {state.roundIndex < mazeRounds.length - 1
@@ -255,7 +255,7 @@ export function InvestigationMaze() {
           <div className="space-y-6">
             {/* Summary of all blocked paths */}
             <div className="mb-6 border-b border-smoke pb-4">
-              <p className="font-document text-[0.6rem] tracking-[0.15em] text-blood">
+              <p className="font-document text-[0.95rem] tracking-[0.15em] text-blood">
                 偵查終結 — 所有路徑均已受阻
               </p>
             </div>
@@ -269,14 +269,14 @@ export function InvestigationMaze() {
                     key={i}
                     className="flex items-start gap-3 border-l-2 border-blood-dark/40 py-2 pl-4"
                   >
-                    <span className="mt-0.5 shrink-0 font-document text-[0.6rem] text-blood-dark">
+                    <span className="mt-0.5 shrink-0 font-document text-[0.95rem] text-blood-dark">
                       {i + 1}.
                     </span>
                     <div>
-                      <p className="font-heading text-[0.75rem] font-bold text-paper-aged/80">
+                      <p className="font-heading text-[0.95rem] font-bold text-paper-aged/80">
                         {choice.label}
                       </p>
-                      <p className="font-document text-[0.6rem] text-blood/60">
+                      <p className="font-document text-[0.95rem] text-blood/60">
                         受阻
                       </p>
                     </div>
@@ -290,7 +290,7 @@ export function InvestigationMaze() {
               <p className="font-literary text-[clamp(0.9rem,2.5vw,1.05rem)] leading-8 text-paper-aged">
                 無論你選擇哪條路，結局都是一樣的。
               </p>
-              <p className="mt-4 font-narrative text-[0.85rem] leading-8 text-dust">
+              <p className="mt-4 font-narrative text-[0.95rem] leading-8 text-dust">
                 這不是你的失敗——這是體制的設計。
                 四十餘年間，每一次調查都在同樣的牆壁前停下腳步。
                 證據被銷毀、線索被封鎖、偵查被架空。
@@ -298,7 +298,7 @@ export function InvestigationMaze() {
               <p className="mt-4 font-heading text-[0.95rem] font-bold text-blood">
                 「國家不容懷疑」的隱形天花板
               </p>
-              <p className="mt-2 font-document text-[0.65rem] tracking-wider text-stone">
+              <p className="mt-2 font-document text-[0.95rem] tracking-wider text-stone">
                 ——促轉會報告 第二章 p.62
               </p>
             </div>
@@ -307,7 +307,7 @@ export function InvestigationMaze() {
             <div className="text-center">
               <button
                 type="button"
-                className="min-h-[44px] border border-smoke/40 px-6 py-2 font-document text-[0.7rem] tracking-wide text-stone transition-colors duration-300 hover:border-stone hover:text-dust active:text-dust"
+                className="min-h-[44px] border border-smoke/40 px-6 py-2 font-document text-[0.9rem] tracking-wide text-stone transition-colors duration-300 hover:border-stone hover:text-dust active:text-dust"
                 onClick={() => {
                   setState({ phase: 'intro' })
                   setHistory([])

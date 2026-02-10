@@ -15,7 +15,7 @@ function YearCounter({ year, label }: { year: string; label: string }) {
       <span className="font-document text-[clamp(3rem,10vw,6rem)] font-black leading-none tracking-wider text-blood-dark">
         {year}
       </span>
-      <span className="mt-2 font-heading text-xs tracking-[0.3em] text-stone">
+      <span className="mt-2 font-heading text-sm tracking-[0.3em] text-stone">
         {label}
       </span>
     </div>
@@ -41,14 +41,14 @@ function PhaseCard({
             {phase.name}
           </h3>
           {phase.nameEn && (
-            <span className="font-document text-xs tracking-wider text-stone">
+            <span className="font-document text-sm tracking-wider text-stone">
               {phase.nameEn}
             </span>
           )}
         </div>
 
         {/* Agency and date */}
-        <div className="mb-4 flex flex-wrap gap-x-6 gap-y-1 font-document text-xs tracking-wider text-dust">
+        <div className="mb-4 flex flex-wrap gap-x-6 gap-y-1 font-document text-sm tracking-wider text-dust">
           <span>
             <span className="text-stone">主管機關</span> {phase.agency}
           </span>
@@ -65,27 +65,27 @@ function PhaseCard({
 
         {/* Lead personnel */}
         {phase.leadPersonnel && phase.leadPersonnel.length > 0 && (
-          <div className="mb-4 font-document text-xs text-dust">
+          <div className="mb-4 font-document text-sm text-dust">
             <span className="tracking-wider text-stone">主導人員</span>{' '}
             {phase.leadPersonnel.join('、')}
           </div>
         )}
 
         {/* Description */}
-        <p className="mb-6 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-paper-burnt">
+        <p className="mb-6 font-narrative text-[clamp(0.95rem,2vw,1.05rem)] leading-[2] text-paper-burnt">
           {phase.description}
         </p>
 
         {/* Findings */}
         <div className="mb-6">
-          <h4 className="mb-3 font-heading text-xs font-bold tracking-[0.2em] text-stone">
+          <h4 className="mb-3 font-heading text-sm font-bold tracking-[0.2em] text-stone">
             調查所得
           </h4>
           <ul className="space-y-2">
             {phase.findings.map((finding, i) => (
               <li
                 key={i}
-                className="flex gap-3 font-literary text-[0.85rem] leading-7 text-dust"
+                className="flex gap-3 font-literary text-[0.95rem] leading-7 text-dust"
               >
                 <span className="mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-stone" />
                 <span>{finding}</span>
@@ -97,14 +97,14 @@ function PhaseCard({
         {/* Problems / Obstructions */}
         {hasProblems && (
           <div className="border-t border-smoke pt-6">
-            <h4 className="mb-3 font-heading text-xs font-bold tracking-[0.2em] text-blood">
+            <h4 className="mb-3 font-heading text-sm font-bold tracking-[0.2em] text-blood">
               阻礙與問題
             </h4>
             <ul className="space-y-2">
               {phase.problems!.map((problem, i) => (
                 <li
                   key={i}
-                  className="flex gap-3 font-literary text-[0.85rem] leading-7 text-blood/80"
+                  className="flex gap-3 font-literary text-[0.95rem] leading-7 text-blood/80"
                 >
                   <span className="mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-blood-dark" />
                   <span>{problem}</span>
@@ -115,7 +115,7 @@ function PhaseCard({
         )}
 
         {/* Source */}
-        <div className="mt-6 font-document text-[0.65rem] tracking-wider text-stone/60">
+        <div className="mt-6 font-document text-[0.75rem] tracking-wider text-stone/60">
           出處：{phase.source}
         </div>
       </div>
@@ -138,7 +138,7 @@ function ObstructionPattern() {
   return (
     <ScrollReveal>
       <div className="mx-auto max-w-[640px] py-12">
-        <h3 className="mb-8 text-center font-heading text-xs font-bold tracking-[0.3em] text-blood">
+        <h3 className="mb-8 text-center font-heading text-sm font-bold tracking-[0.3em] text-blood">
           四十年——同一個模式
         </h3>
         <div className="space-y-0">
@@ -149,7 +149,7 @@ function ObstructionPattern() {
 
               <div className="relative z-10 flex w-full items-start gap-4 py-4 sm:gap-6">
                 {/* Year marker */}
-                <div className="flex w-14 shrink-0 items-center justify-center font-document text-xs tracking-wider text-stone sm:w-18">
+                <div className="flex w-14 shrink-0 items-center justify-center font-document text-sm tracking-wider text-stone sm:w-18">
                   {item.year}
                 </div>
 
@@ -158,10 +158,10 @@ function ObstructionPattern() {
 
                 {/* Content */}
                 <div className="flex-1">
-                  <div className="font-heading text-[0.85rem] font-bold text-paper-aged">
+                  <div className="font-heading text-[0.95rem] font-bold text-paper-aged">
                     {item.action}
                   </div>
-                  <div className="mt-1 font-literary text-[0.8rem] leading-6 text-blood/70">
+                  <div className="mt-1 font-literary text-[0.95rem] leading-6 text-blood/70">
                     {item.result}
                   </div>
                 </div>
@@ -172,7 +172,7 @@ function ObstructionPattern() {
 
         {/* Frustration statement */}
         <div className="mt-8 border-t border-smoke pt-8 text-center">
-          <p className="font-literary text-[clamp(0.9rem,2vw,0.95rem)] leading-[2] text-dust">
+          <p className="font-literary text-[clamp(1rem,2vw,1.05rem)] leading-[2] text-dust">
             七次調查。四十餘年。同一個結果。
           </p>
           <p className="mt-2 font-narrative text-[clamp(1rem,2.5vw,1.1rem)] font-bold leading-[1.8] text-blood">
@@ -210,7 +210,7 @@ export function InvestigationHistory() {
           </p>
         </ScrollReveal>
         <ScrollReveal delay={200}>
-          <p className="mb-16 font-literary text-[clamp(0.9rem,2vw,0.95rem)] leading-[2] text-dust">
+          <p className="mb-16 font-literary text-[clamp(1rem,2vw,1.05rem)] leading-[2] text-dust">
             從戒嚴時代的情治機關介入操控，到民主化後的檔案毀損與消極配合，
             林宅血案的調查歷程本身，就是一部國家如何系統性阻礙真相的紀錄。
           </p>
@@ -224,14 +224,14 @@ export function InvestigationHistory() {
         {/* ─── Section: Martial Law Era (1980) ────────── */}
         <ScrollReveal>
           <div className="mb-8 mt-16 border-b border-smoke pb-4">
-            <h3 className="font-heading text-xs font-bold tracking-[0.3em] text-stone">
+            <h3 className="font-heading text-sm font-bold tracking-[0.3em] text-stone">
               壹、戒嚴時期之調查（1980）
             </h3>
           </div>
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
-          <p className="mb-12 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
+          <p className="mb-12 font-narrative text-[clamp(0.95rem,2vw,1.05rem)] leading-[2] text-dust">
             案發翌日起，三個專案同時展開——表面上是傾全力偵辦，實則由國安局主導，
             將調查方向鎖定在「國家敵人」身上，有系統地將刑事偵查人員隔絕於關鍵情報之外。
           </p>
@@ -244,14 +244,14 @@ export function InvestigationHistory() {
         {/* ─── Intelligence Agency Structure Diagram ──── */}
         <ScrollReveal>
           <div className="my-16 border border-smoke bg-void/60 p-6 sm:p-8">
-            <h4 className="mb-6 text-center font-heading text-xs font-bold tracking-[0.3em] text-stone">
+            <h4 className="mb-6 text-center font-heading text-sm font-bold tracking-[0.3em] text-stone">
               情治機關指揮架構
             </h4>
-            <div className="flex flex-col items-center gap-4 font-document text-xs leading-6">
+            <div className="flex flex-col items-center gap-4 font-document text-sm leading-6">
               {/* Top level */}
               <div className="border border-blood-dark bg-blood-dark/20 px-6 py-2 text-center text-blood">
                 國安局長 王永澍
-                <div className="mt-1 text-[0.65rem] text-stone">
+                <div className="mt-1 text-[0.75rem] text-stone">
                   「集中會報、分工查證、統一研判」
                 </div>
               </div>
@@ -278,24 +278,24 @@ export function InvestigationHistory() {
               <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:justify-center sm:gap-4">
                 <div className="w-full border border-smoke/50 bg-ash/30 px-3 py-2 text-center text-dust sm:w-auto">
                   撥雲專案
-                  <div className="text-[0.6rem] text-stone">刑事局｜134次會議</div>
+                  <div className="text-[0.75rem] text-stone">刑事局｜134次會議</div>
                 </div>
                 <div className="w-full border border-blood-dark/40 bg-blood-dark/10 px-3 py-2 text-center text-blood/70 sm:w-auto">
                   三○七專案
-                  <div className="text-[0.6rem] text-stone">國安局/警政署｜73次會議</div>
+                  <div className="text-[0.75rem] text-stone">國安局/警政署｜73次會議</div>
                 </div>
                 <div className="w-full border border-smoke/50 bg-ash/30 px-3 py-2 text-center text-dust sm:w-auto">
                   誠公專案
-                  <div className="text-[0.6rem] text-stone">調查局｜清查黨外人士</div>
+                  <div className="text-[0.75rem] text-stone">調查局｜清查黨外人士</div>
                 </div>
               </div>
 
               {/* Blocked arrow */}
               <div className="mt-4 text-center">
-                <div className="font-literary text-[0.8rem] text-blood/60">
+                <div className="font-literary text-[0.95rem] text-blood/60">
                   ↑ 監控資訊被屏蔽 ↑
                 </div>
-                <div className="mt-1 text-[0.65rem] text-stone">
+                <div className="mt-1 text-[0.75rem] text-stone">
                   撥雲專案人員無法獲悉竊聽、監聽等監控所得資訊
                 </div>
               </div>
@@ -315,7 +315,7 @@ export function InvestigationHistory() {
               <p className="mb-4">
                 嫌犯「可能係國民黨內鷹派的軍派人物」。
               </p>
-              <p className="text-[0.8rem] text-smoke/80">
+              <p className="text-[0.95rem] text-smoke/80">
                 ——三○七專案呈蔣經國總統之情報研判，民國69年4月8日。
                 然而此偵查方向從未被執行。
               </p>
@@ -326,14 +326,14 @@ export function InvestigationHistory() {
         {/* ─── Section: Post-Democratization ──────────── */}
         <ScrollReveal>
           <div className="mb-8 mt-24 border-b border-smoke pb-4">
-            <h3 className="font-heading text-xs font-bold tracking-[0.3em] text-stone">
+            <h3 className="font-heading text-sm font-bold tracking-[0.3em] text-stone">
               貳、民主化後之重啟調查（1996—2018）
             </h3>
           </div>
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
-          <p className="mb-12 font-narrative text-[clamp(0.85rem,2vw,0.9rem)] leading-[2] text-dust">
+          <p className="mb-12 font-narrative text-[clamp(0.95rem,2vw,1.05rem)] leading-[2] text-dust">
             解嚴之後，歷屆政府多次重啟調查——然而年代久遠、檔案散佚、
             物證劣化、天災毀損，加上情治機關持續隱匿監控紀錄，
             每一次都無法取得突破。直到促轉會成立，方首度揭露系統性監控之事實。
@@ -347,7 +347,7 @@ export function InvestigationHistory() {
         {/* ─── Investigation Timeline ─────────────────── */}
         <ScrollReveal>
           <div className="my-16">
-            <h3 className="mb-8 font-heading text-xs font-bold tracking-[0.3em] text-stone">
+            <h3 className="mb-8 font-heading text-sm font-bold tracking-[0.3em] text-stone">
               調查歷程年表
             </h3>
             <Timeline>
@@ -386,7 +386,7 @@ export function InvestigationHistory() {
                 撥雲專案歷年編纂之29冊文件、549卷以上之調查卷宗，
                 因民國90年9月「納莉颱風」遭水淹浸毀壞——僅存約170卷。
               </p>
-              <p className="text-[0.8rem] text-smoke/80">
+              <p className="text-[0.95rem] text-smoke/80">
                 三分之二以上的調查紀錄，在一場颱風中永久消失。
                 <br />
                 而關鍵的電話監聽錄音帶，更早在案發後即遭國安局銷毀。
@@ -398,7 +398,7 @@ export function InvestigationHistory() {
         {/* ─── Conclusions from 促轉會 ────────────────── */}
         <ScrollReveal>
           <div className="mb-8 mt-24 border-b border-smoke pb-4">
-            <h3 className="font-heading text-xs font-bold tracking-[0.3em] text-blood">
+            <h3 className="font-heading text-sm font-bold tracking-[0.3em] text-blood">
               參、促轉會之結論
             </h3>
           </div>
@@ -410,10 +410,10 @@ export function InvestigationHistory() {
               <h4 className="mb-4 font-heading text-[clamp(0.95rem,2.5vw,1.1rem)] font-bold leading-7 text-paper-aged">
                 {conclusion.title}
               </h4>
-              <p className="font-literary text-[0.85rem] leading-8 text-dust">
+              <p className="font-literary text-[0.95rem] leading-8 text-dust">
                 {conclusion.description}
               </p>
-              <div className="mt-4 font-document text-[0.65rem] tracking-wider text-stone/60">
+              <div className="mt-4 font-document text-[0.75rem] tracking-wider text-stone/60">
                 出處：{conclusion.source}
               </div>
             </div>
@@ -451,7 +451,7 @@ export function InvestigationHistory() {
               <br />
               方能完整還原歷史真相。
             </p>
-            <p className="mt-8 font-document text-xs tracking-[0.2em] text-stone">
+            <p className="mt-8 font-document text-sm tracking-[0.2em] text-stone">
               ——促轉會報告 第三章 p.89
             </p>
           </div>
