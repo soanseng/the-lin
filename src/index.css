@@ -97,17 +97,41 @@ body::after {
   100% { transform: translate3d(2px, 1px, 0); }
 }
 
-/* === Scroll Snap Container === */
+/* === Mobile Touch Fixes === */
 
-.scroll-snap-container {
-  scroll-snap-type: y proximity;
+/* Prevent iOS long-press callout menu on non-interactive content */
+body {
+  -webkit-touch-callout: none;
 }
 
-.scroll-snap-container > section,
-.scroll-snap-container > article > section,
-.scroll-snap-container > div > section,
-.scroll-snap-container > div > article > section {
-  scroll-snap-align: start;
+/* Re-enable callout for links and interactive elements so users can still
+   long-press to preview/copy links as expected */
+a, button, input, textarea, select, [role="button"] {
+  -webkit-touch-callout: default;
+}
+
+/* Prevent Android Chrome pull-to-refresh from triggering during reading.
+   Also prevents overscroll bounce on both iOS and Android. */
+html {
+  overscroll-behavior-y: none;
+}
+
+/* === Scroll Snap Container === */
+
+/* Scroll-snap only on pointer devices (mouse/trackpad).
+   On touch devices (phones/tablets) it conflicts with iOS long-press
+   gestures, causing the page to snap-jump unexpectedly. */
+@media (pointer: fine) {
+  .scroll-snap-container {
+    scroll-snap-type: y proximity;
+  }
+
+  .scroll-snap-container > section,
+  .scroll-snap-container > article > section,
+  .scroll-snap-container > div > section,
+  .scroll-snap-container > div > article > section {
+    scroll-snap-align: start;
+  }
 }
 
 /* === Scroll Reveal Base === */
