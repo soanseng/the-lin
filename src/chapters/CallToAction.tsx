@@ -238,19 +238,39 @@ export function CallToAction() {
 
           <ScrollReveal delay={200}>
             <p className="mb-6 font-narrative text-[clamp(0.95rem,2vw,1.05rem)] leading-[2] text-dust">
+              我只是一位精神科醫師，從1月初看完電影《大濛》之後，我總覺得有些情緒，說不太出來，但是卡住的感覺。如果榮格的集體潛意識是真的話，那我相信，這一大段空白的歷史，應該不會是只有我個人卡住的情緒，應該也是台灣人的集體創傷。
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={400}>
+            <p className="mb-6 font-narrative text-[clamp(0.95rem,2vw,1.05rem)] leading-[2] text-dust">
+              以前上課有學過，創傷要好，就是大家要相濡以沫，大家互相訴說。這幾天看到新聞，我一直想要說些什麼，但卻又說不出什麼。那就如納博科夫的《說吧！記憶》，我找了政府公開的調查文件，做了一個簡單互動式的網站，仔細看完，還是很沉重，但我似乎好了一些，也希望讀了這篇的你，也好了一些。讓這片土地，也可以再好一些。
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={600}>
+            <div className="border-l-2 border-blood/40 bg-ash/40 px-6 py-5">
+              <p className="font-literary text-[clamp(0.95rem,2.5vw,1.1rem)] leading-[2.2] tracking-wide text-paper-aged">
+                我只花了一個不眠的晚上，但林家花了15,000多個晚上，卻仍然沒有答案。
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={800}>
+            <p className="mb-6 font-narrative text-[clamp(0.95rem,2vw,1.05rem)] leading-[2] text-dust">
               二〇二六年，一部未經家屬授權的電影聲稱改編自林宅血案。
               影片扭曲歷史，以聳動手法消費受害者家屬的傷痛，引發社會爭議。
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={400}>
+          <ScrollReveal delay={1000}>
             <p className="mb-6 font-narrative text-[clamp(0.95rem,2vw,1.05rem)] leading-[2] text-dust">
               然而，真正的調查報告——由促轉會、高檢署、監察院三個機關歷經數十年調查的成果——
               卻鮮少有人完整閱讀。
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={600}>
+          <ScrollReveal delay={1200}>
             <div className="border-l-2 border-incense/40 bg-ash/40 px-6 py-5">
               <p className="font-literary text-[clamp(0.9rem,2vw,0.95rem)] leading-[2] text-paper-aged">
                 我們相信：對抗歷史扭曲最好的方式，不是憤怒，而是讓更多人讀到原始資料。
@@ -262,14 +282,14 @@ export function CallToAction() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={800}>
+          <ScrollReveal delay={1400}>
             <p className="mt-8 font-narrative text-[clamp(0.95rem,2vw,1.05rem)] leading-[2] text-dust">
               我們希望這些資料不再只是塵封的 PDF，
               而能成為每一個關心台灣歷史的人都能閱讀、理解、傳遞的故事。
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={1000}>
+          <ScrollReveal delay={1600}>
             <p className="mt-10 font-narrative text-[0.9rem] leading-7 text-stone">
               <span className="text-paper-aged">陳璿丞醫師</span>
               {' '}&middot;{' '}
