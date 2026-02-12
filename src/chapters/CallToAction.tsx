@@ -268,6 +268,30 @@ export function CallToAction() {
               而能成為每一個關心台灣歷史的人都能閱讀、理解、傳遞的故事。
             </p>
           </ScrollReveal>
+
+          <ScrollReveal delay={1000}>
+            <p className="mt-10 font-narrative text-[0.9rem] leading-7 text-stone">
+              <span className="text-paper-aged">陳璿丞醫師</span>
+              {' '}&middot;{' '}
+              <a
+                href="https://anatomind.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-incense/80 underline decoration-incense/30 underline-offset-4 transition-colors hover:text-incense"
+              >
+                anatomind.com
+              </a>
+              {' '}&middot;{' '}
+              <a
+                href="https://facebook.com/anatomind"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-incense/80 underline decoration-incense/30 underline-offset-4 transition-colors hover:text-incense"
+              >
+                Facebook
+              </a>
+            </p>
+          </ScrollReveal>
         </div>
       </Section>
 
@@ -483,6 +507,34 @@ export function CallToAction() {
                   視覺靈感取自公文檔案、解密文件與白色恐怖時期的影像紀錄。
                 </p>
               </div>
+
+              {/* Author / Contact */}
+              <div className="border-l border-stone/30 pl-6">
+                <h5 className="mb-3 font-heading text-[0.85rem] uppercase tracking-[0.2em] text-incense">
+                  製作團隊
+                </h5>
+                <p className="font-narrative text-[0.9rem] leading-7 text-dust">
+                  <span className="text-paper-aged">陳璿丞醫師</span>
+                </p>
+                <div className="mt-3 flex flex-wrap gap-4">
+                  <a
+                    href="https://anatomind.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-document text-[0.85rem] tracking-[0.1em] text-incense/80 underline decoration-incense/30 underline-offset-4 transition-colors hover:text-incense"
+                  >
+                    anatomind.com
+                  </a>
+                  <a
+                    href="https://facebook.com/anatomind"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-document text-[0.85rem] tracking-[0.1em] text-incense/80 underline decoration-incense/30 underline-offset-4 transition-colors hover:text-incense"
+                  >
+                    Facebook
+                  </a>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </div>
@@ -541,7 +593,7 @@ export function CallToAction() {
                 FEBRUARY 28, 1980 &mdash; NEVER FORGET
               </p>
               <p className="mt-4 font-heading text-[0.85rem] tracking-[0.2em] text-stone/60">
-                soanseng/the-lin &middot; open source
+                陳璿丞醫師 &middot; soanseng/the-lin &middot; open source
               </p>
             </footer>
           </ScrollReveal>
