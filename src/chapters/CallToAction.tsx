@@ -442,6 +442,39 @@ export function CallToAction() {
                 </p>
               </ScrollReveal>
             </ActionCard>
+
+            {/* ── Card 5: Extended Reading ── */}
+            <ActionCard
+              number="05"
+              title="延伸閱讀"
+              titleEn="RELATED PROJECTS"
+              accent="paper-aged"
+              delay={600}
+            >
+              <p className="mb-5 font-narrative text-[0.9rem] leading-7 text-dust">
+                陳文成事件與林宅血案同列於高檢署重啟調查報告，
+                是白色恐怖時期另一起至今未解的政治命案。
+              </p>
+              <a
+                href="https://soanseng.github.io/Chen-Wen-chen/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block min-h-[44px] border border-smoke/40 bg-ash/40 p-5 transition-all duration-300 hover:border-incense/40 hover:bg-ash/80"
+              >
+                <div className="mb-1 font-heading text-[0.95rem] font-bold text-paper-aged transition-colors group-hover:text-incense">
+                  陳文成事件——互動歷史記錄
+                </div>
+                <div className="mb-3 font-document text-[0.85rem] tracking-[0.1em] text-stone">
+                  Chen Wen-chen Incident — Interactive History
+                </div>
+                <p className="font-narrative text-[0.9rem] leading-7 text-dust">
+                  以互動式網站呈現陳文成博士命案的調查歷程與歷史脈絡。
+                </p>
+                <div className="mt-3 font-document text-[0.85rem] tracking-[0.15em] text-incense/70 transition-colors group-hover:text-incense">
+                  前往網站 &rarr;
+                </div>
+              </a>
+            </ActionCard>
           </div>
         </div>
       </Section>
