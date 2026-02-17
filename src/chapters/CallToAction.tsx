@@ -48,6 +48,33 @@ const transitionalJusticeLinks = [
   },
 ]
 
+const seriesSites = [
+  {
+    title: '林宅血案',
+    titleEn: 'The Lin Family Massacre',
+    url: 'https://soanseng.github.io/the-lin/',
+    description:
+      '1980年省議員林義雄家中滅門血案，四十年未解的政治謀殺。',
+    current: true,
+  },
+  {
+    title: '陳文成事件',
+    titleEn: 'Chen Wen-chen Incident',
+    url: 'https://soanseng.github.io/Chen-Wen-chen/',
+    description:
+      '1981年旅美學者陳文成博士返台遭約談後陳屍校園，至今真相未明。',
+    current: false,
+  },
+  {
+    title: '江南案',
+    titleEn: 'The Henry Liu Case',
+    url: 'https://soanseng.github.io/henry-liu-case/',
+    description:
+      '1984年旅美作家劉宜良（筆名江南）遭情治機關跨國暗殺案。',
+    current: false,
+  },
+]
+
 // ─── Action Card ────────────────────────────────────────────
 
 function ActionCard({
@@ -443,37 +470,44 @@ export function CallToAction() {
               </ScrollReveal>
             </ActionCard>
 
-            {/* ── Card 5: Extended Reading ── */}
+            {/* ── Card 5: Series Sites ── */}
             <ActionCard
               number="05"
-              title="延伸閱讀"
-              titleEn="RELATED PROJECTS"
+              title="系列網站"
+              titleEn="CASE FILE SERIES"
               accent="paper-aged"
               delay={600}
             >
               <p className="mb-5 font-narrative text-[0.9rem] leading-7 text-dust">
-                陳文成事件與林宅血案同列於高檢署重啟調查報告，
-                是白色恐怖時期另一起至今未解的政治命案。
+                台灣威權時代重大案件互動式歷史紀錄系列——以相同的「檔案恐怖」設計語言，
+                呈現不同案件的調查歷程。
               </p>
-              <a
-                href="https://soanseng.github.io/Chen-Wen-chen/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block min-h-[44px] border border-smoke/40 bg-ash/40 p-5 transition-all duration-300 hover:border-incense/40 hover:bg-ash/80"
-              >
-                <div className="mb-1 font-heading text-[0.95rem] font-bold text-paper-aged transition-colors group-hover:text-incense">
-                  陳文成事件——互動歷史記錄
-                </div>
-                <div className="mb-3 font-document text-[0.85rem] tracking-[0.1em] text-stone">
-                  Chen Wen-chen Incident — Interactive History
-                </div>
-                <p className="font-narrative text-[0.9rem] leading-7 text-dust">
-                  以互動式網站呈現陳文成博士命案的調查歷程與歷史脈絡。
-                </p>
-                <div className="mt-3 font-document text-[0.85rem] tracking-[0.15em] text-incense/70 transition-colors group-hover:text-incense">
-                  前往網站 &rarr;
-                </div>
-              </a>
+              <div className="space-y-3">
+                {seriesSites
+                  .filter((site) => !site.current)
+                  .map((site) => (
+                    <a
+                      key={site.title}
+                      href={site.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block min-h-[44px] border border-smoke/40 bg-ash/40 p-5 transition-all duration-300 hover:border-incense/40 hover:bg-ash/80"
+                    >
+                      <div className="mb-1 font-heading text-[0.95rem] font-bold text-paper-aged transition-colors group-hover:text-incense">
+                        {site.title}
+                      </div>
+                      <div className="mb-3 font-document text-[0.85rem] tracking-[0.1em] text-stone">
+                        {site.titleEn}
+                      </div>
+                      <p className="font-narrative text-[0.9rem] leading-7 text-dust">
+                        {site.description}
+                      </p>
+                      <div className="mt-3 font-document text-[0.85rem] tracking-[0.15em] text-incense/70 transition-colors group-hover:text-incense">
+                        前往網站 &rarr;
+                      </div>
+                    </a>
+                  ))}
+              </div>
             </ActionCard>
           </div>
         </div>
@@ -594,7 +628,69 @@ export function CallToAction() {
       </Section>
 
       {/* ============================================
-          SECTION 5: Closing — Emerging from darkness
+          SECTION 6: Series Sites
+          ============================================ */}
+      <Section id="cta-series" background="ash">
+        <div className="w-full max-w-[640px]">
+          <ScrollReveal>
+            <h3 className="mb-2 font-heading text-[0.85rem] uppercase tracking-[0.4em] text-stone">
+              CASE FILE SERIES
+            </h3>
+            <h4 className="mb-4 font-narrative text-[clamp(1.3rem,4vw,2rem)] font-bold text-paper-aged">
+              系列網站
+            </h4>
+            <p className="mb-10 font-narrative text-[clamp(0.9rem,2vw,0.95rem)] leading-7 text-dust">
+              台灣威權時代重大案件互動式歷史紀錄系列
+            </p>
+          </ScrollReveal>
+
+          <div className="space-y-4">
+            {seriesSites.map((site, i) => (
+              <ScrollReveal key={site.title} delay={i * 150}>
+                {site.current ? (
+                  <div className="relative border border-incense/30 bg-ink/60 p-6">
+                    <div className="absolute right-4 top-4 font-document text-[0.75rem] tracking-[0.2em] text-incense/60">
+                      YOU ARE HERE
+                    </div>
+                    <div className="mb-1 font-heading text-[0.95rem] font-bold text-incense">
+                      {site.title}
+                    </div>
+                    <div className="mb-3 font-document text-[0.85rem] tracking-[0.1em] text-stone">
+                      {site.titleEn}
+                    </div>
+                    <p className="font-narrative text-[0.9rem] leading-7 text-dust">
+                      {site.description}
+                    </p>
+                  </div>
+                ) : (
+                  <a
+                    href={site.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block border border-smoke/40 bg-ink/40 p-6 transition-all duration-300 hover:border-incense/40 hover:bg-ink/60"
+                  >
+                    <div className="mb-1 font-heading text-[0.95rem] font-bold text-paper-aged transition-colors group-hover:text-incense">
+                      {site.title}
+                    </div>
+                    <div className="mb-3 font-document text-[0.85rem] tracking-[0.1em] text-stone">
+                      {site.titleEn}
+                    </div>
+                    <p className="font-narrative text-[0.9rem] leading-7 text-dust">
+                      {site.description}
+                    </p>
+                    <div className="mt-3 font-document text-[0.85rem] tracking-[0.15em] text-incense/70 transition-colors group-hover:text-incense">
+                      前往網站 &rarr;
+                    </div>
+                  </a>
+                )}
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* ============================================
+          SECTION 7: Closing — Emerging from darkness
           ============================================ */}
       <Section id="cta-closing" background="ash">
         <div className="w-full max-w-[560px] text-center">

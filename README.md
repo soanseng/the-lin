@@ -83,6 +83,16 @@ npm run type-check   # TypeScript 型別檢查
 - 回報問題或提出功能建議
 - 改善程式碼、設計或無障礙體驗
 
+## 系列網站
+
+本站為「台灣威權時代重大案件互動式歷史紀錄」系列之一：
+
+| 案件 | 網站 | 說明 |
+|------|------|------|
+| **林宅血案**（本站） | [soanseng.github.io/the-lin](https://soanseng.github.io/the-lin/) | 1980年省議員林義雄家中滅門血案，四十年未解的政治謀殺 |
+| **陳文成事件** | [soanseng.github.io/Chen-Wen-chen](https://soanseng.github.io/Chen-Wen-chen/) | 1981年旅美學者陳文成博士返台遭約談後陳屍校園 |
+| **江南案** | [soanseng.github.io/henry-liu-case](https://soanseng.github.io/henry-liu-case/) | 1984年旅美作家劉宜良（筆名江南）遭情治機關跨國暗殺 |
+
 ## 授權
 
 程式碼以 MIT 授權釋出。歷史敘事內容取材自政府公開文件。
