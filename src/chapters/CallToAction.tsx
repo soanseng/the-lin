@@ -52,7 +52,7 @@ const seriesSites = [
   {
     title: '林宅血案',
     titleEn: 'The Lin Family Massacre',
-    url: 'https://soanseng.github.io/the-lin/',
+    url: 'https://lin.nectamen.com/',
     description:
       '1980年省議員林義雄家中滅門血案，四十年未解的政治謀殺。',
     current: true,
@@ -60,7 +60,7 @@ const seriesSites = [
   {
     title: '陳文成事件',
     titleEn: 'Chen Wen-chen Incident',
-    url: 'https://soanseng.github.io/Chen-Wen-chen/',
+    url: 'https://cwc.nectamen.com/',
     description:
       '1981年旅美學者陳文成博士返台遭約談後陳屍校園，至今真相未明。',
     current: false,
@@ -68,9 +68,17 @@ const seriesSites = [
   {
     title: '江南案',
     titleEn: 'The Henry Liu Case',
-    url: 'https://soanseng.github.io/henry-liu-case/',
+    url: 'https://liu.nectamen.com/',
     description:
       '1984年旅美作家劉宜良（筆名江南）遭情治機關跨國暗殺案。',
+    current: false,
+  },
+  {
+    title: '鄭南榕事件',
+    titleEn: 'The Nylon Deng Incident',
+    url: 'https://nylon.nectamen.com/',
+    description:
+      '1989年雜誌創辦人鄭南榕因出版主張台灣獨立文章遭叛亂罪起訴，自焚殉道。',
     current: false,
   },
 ]

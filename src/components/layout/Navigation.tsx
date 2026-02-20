@@ -108,7 +108,7 @@ export function Navigation({ items }: NavigationProps) {
       <button
         type="button"
         onClick={() => setIsMenuOpen((prev) => !prev)}
-        className="fixed top-3 left-3 z-[120] flex h-11 w-11 cursor-pointer items-center justify-center border border-stone/40 bg-void/70 backdrop-blur-sm transition-all duration-300 hover:border-stone-light/80 hover:bg-void/90 sm:top-4 sm:left-4"
+        className="fixed top-3 left-3 z-[120] flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-stone/40 bg-void/70 backdrop-blur-sm transition-all duration-300 hover:border-stone-light/80 hover:bg-void/90 sm:top-4 sm:left-4"
         aria-label={isMenuOpen ? '關閉目錄' : '開啟目錄'}
         aria-expanded={isMenuOpen}
       >
@@ -249,6 +249,12 @@ export function Navigation({ items }: NavigationProps) {
 
           {/* Panel Footer */}
           <div className="shrink-0 border-t border-smoke/15 px-8 py-5">
+            <a
+              href="https://nectamen.com/"
+              className="mb-3 flex items-center gap-1.5 font-document text-[0.7rem] tracking-[0.15em] text-stone/60 transition-colors hover:text-stone-light"
+            >
+              ↑ nectamen.com
+            </a>
             <div className="font-document text-[0.6rem] tracking-[0.2em] text-stone/55">
               林宅血案 — 1980.02.28
             </div>
